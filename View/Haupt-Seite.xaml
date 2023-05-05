@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Buchhalter_ME.View.Haupt_Seite"
+             Title="Haupt_Seite"
+             Style="{StaticResource GlobalContentPageStyle}"
+             Shell.FlyoutWidth="200" Shell.FlyoutItemIsVisible="True" Shell.FlyoutBehavior="Flyout"
+             >
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to Haupt Seite!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button Text="Zum--> Artikel Seite" Clicked="BtnArtikelSeite" Margin="20"></Button>
+        
+    </VerticalStackLayout>
+    
+
+</ContentPage>

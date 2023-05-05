@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Buchhalter_ME.View.AnmeldeSeite"
+             Title="AnmeldeSeite"
+             >
+    <ContentPage.Resources>
+        <LinearGradientBrush x:Key="myGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="LightBlue" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </LinearGradientBrush>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="150,*">
+
+        <Grid Grid.Row="0" Background="{StaticResource myGradient}">
+            <Image Source="what.png"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="{StaticResource myGradient}" RowDefinitions="auto,auto,auto,auto,auto,auto">
+
+            <Label Text="Anmelden" 
+                   HorizontalOptions="Center" 
+                   Padding="10" FontSize="30" 
+                   TextColor="White" Grid.Row="0" 
+                   Margin="10,10,10,5"></Label>
+
+            <Label Text="Benutzername" 
+                   Grid.Row="1" 
+                   Padding="10" 
+                   Margin="30,20,20,5" 
+                   FontSize="Subtitle" 
+                   TextColor="#FFF6F6"/>
+
+            <Border  Grid.Row="2"
+                     StrokeThickness="1"
+                     StrokeShape="RoundRectangle 10,10,10,10"
+                     Margin="10,0,40,0"
+                     WidthRequest="250"
+                     HeightRequest="50">
+                <Entry/>
+            </Border>
+
+            <Label Text="Passwort" 
+                   Padding="10" 
+                   Grid.Row="3" 
+                   Margin="30,20,20,5" 
+                   FontSize="Subtitle" 
+                   TextColor="#FFF6F6"/>
+
+            <Border  Grid.Row="4"
+                     StrokeThickness="1"
+                     StrokeShape="RoundRectangle 10,10,10,10"
+                     Margin="10,0,40,0"
+                     WidthRequest="250"
+                     HeightRequest="50">
+                <Entry></Entry>
+            </Border>
+
+            <Button Text="anmelden" 
+                    Grid.Row="5" 
+                    Padding="10" 
+                    HeightRequest="50" 
+                    WidthRequest="250" 
+                    Margin="10,30,40,10" 
+                    HorizontalOptions="Center"
+                    Clicked="Btn_Anmelden">
+            </Button>
+        </Grid>
+    </Grid>
+</ContentPage>
