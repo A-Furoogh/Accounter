@@ -1,4 +1,4 @@
-﻿using Buchhalter_ME.View;
+﻿using Accounter.View;
 
 namespace Accounter;
 

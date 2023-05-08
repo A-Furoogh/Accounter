@@ -1,10 +1,13 @@
-namespace Buchhalter_ME.View;
+using Accounter.ViewModels;
+
+namespace Accounter.View;
 
 public partial class Haupt_Seite : ContentPage
 {
 	public Haupt_Seite()
 	{
 		InitializeComponent();
+        var an = new Anmelde_Seite();
         
     }
 

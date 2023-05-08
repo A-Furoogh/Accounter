@@ -1,4 +1,4 @@
-namespace Buchhalter_ME.View;
+namespace Accounter.View;
 
 public partial class Artikel_Seite : ContentPage
 {

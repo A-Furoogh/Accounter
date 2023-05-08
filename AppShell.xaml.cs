@@ -1,4 +1,6 @@
-﻿namespace Accounter;
+﻿
+
+namespace Accounter;
 
 public partial class AppShell : Shell
 {
@@ -6,4 +8,5 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
+	
 }

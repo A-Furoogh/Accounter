@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Buchhalter_ME.ViewModels
+namespace Accounter.ViewModels
 {
     internal class ArtikelVM
     {

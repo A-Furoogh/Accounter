@@ -1,4 +1,7 @@
-﻿namespace Accounter;
+﻿using Accounter.View;
+
+
+namespace Accounter;
 
 public partial class App : Application
 {
@@ -6,6 +9,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		MainPage = new Anmelde_Seite();
 	}
 }

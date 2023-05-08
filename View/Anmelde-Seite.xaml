@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Buchhalter_ME.View.AnmeldeSeite"
-             Title="AnmeldeSeite"
-             >
+             x:Class="Accounter.View.Anmelde_Seite"
+             Title="Anmelde_Seite">
     <ContentPage.Resources>
         <LinearGradientBrush x:Key="myGradient" StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="LightBlue" Offset="0"/>
             <GradientStop Color="Blue" Offset="1"/>
         </LinearGradientBrush>
     </ContentPage.Resources>
+
 
     <Grid RowDefinitions="150,*">
 

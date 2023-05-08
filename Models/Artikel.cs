@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Buchhalter_ME.Models
+namespace Accounter.Models
 {
    
         public class Artikel
