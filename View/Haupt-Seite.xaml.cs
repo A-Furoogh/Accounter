@@ -4,15 +4,14 @@ namespace Accounter.View;
 
 public partial class Haupt_Seite : ContentPage
 {
-	public Haupt_Seite()
+	public Haupt_Seite(Haupt_SeiteVM vm)
 	{
 		InitializeComponent();
-        var an = new Anmelde_Seite();
-        
+        BindingContext = vm;
     }
 
     private void BtnArtikelSeite(object sender, EventArgs e)
     {
-        Navigation.PushModalAsync(new Artikel_Seite());
+        Navigation.PushAsync(new Artikel_Seite());
     }
 }

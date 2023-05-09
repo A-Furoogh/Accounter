@@ -20,7 +20,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<Haupt_SeiteVM>();
 
         builder.Services.AddSingleton<Anmelde_Seite>();
-        builder.Services.AddSingleton<Anmelde_Seite>();
+        builder.Services.AddSingleton<Anmelde_SeiteViewModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();
