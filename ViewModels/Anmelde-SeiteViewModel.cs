@@ -8,25 +8,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Accounter.Models;
+using Accounter.Services;
+using System.Diagnostics.Contracts;
 
 namespace Accounter.ViewModels
 {
     public partial class Anmelde_SeiteViewModel : BaseViewModel
     {
-        
-
         [ObservableProperty]
-        ObservableCollection<Benutzer> _benutzerListe;    
-        public Anmelde_SeiteViewModel()
+        ObservableCollection<Benutzer> benutzerListe = new()
         {
-            _benutzerListe = new();
-            _benutzerListe.Add(new Benutzer() { Benutzername="Admin", Passwort="12345"});
+            new Benutzer { Benutzername = "Admin", Passwort = "12345"},
+            new Benutzer { Benutzername = "User", Passwort = "12345"}
+        };
+        public readonly IBenutzerService _benutzerService;
+        public Anmelde_SeiteViewModel(IBenutzerService benutzerService)
+        {
+            
+            _benutzerService = benutzerService;
+        }
+        [ObservableProperty]
+        public string benutzername;
+        [ObservableProperty]
+        public string passwort;
+
+        [RelayCommand]
+        public async void ShowList()
+        {
+            var benutzers = await _benutzerService.GetBenutzerList();
+            if (benutzers?.Count > 0)
+            {
+                BenutzerListe.Clear();
+                foreach (var benutzer in benutzers)
+                {
+                    BenutzerListe.Add(benutzer);
+                }
+            }
         }
 
         [RelayCommand]
-        public void Anmelden()
+        public async void Anmelden()
         {
-            if (!string.IsNullOrEmpty(Benutzername) && !string.IsNullOrEmpty(Passwort))
+            if (!string.IsNullOrEmpty(BenutzerListe.ToString()))
             {
                 //check if user exists in the list with the given password
                 if (BenutzerListe.Any(x => x.Benutzername == Benutzername && x.Passwort == Passwort))
@@ -36,8 +59,8 @@ namespace Accounter.ViewModels
                 }
                 else
                 {
-                    //show error message
-                    Application.Current.MainPage.DisplayAlert("Error", "Benutzername oder Passwort ist falsch", "OK");
+                    //Show alert dialog
+                    await Application.Current.MainPage.DisplayAlert("Fehler", "Benutzername oder Passwort ist falsch", "OK");
                 }
             }
             

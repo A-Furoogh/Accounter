@@ -45,7 +45,7 @@
                          StrokeShape="RoundRectangle 10,10,10,10"
                          WidthRequest="250"
                          HeightRequest="50">
-                    <Entry Text="{Binding _benutzerName}"></Entry>
+                    <Entry Text="{Binding Benutzername}"></Entry>
                 </Border>
             </VerticalStackLayout>
             
@@ -61,7 +61,7 @@
                          StrokeShape="RoundRectangle 10,10,10,10"
                          WidthRequest="250"
                          HeightRequest="50">
-                    <Entry Text="{Binding _passwort}"></Entry>
+                    <Entry Text="{Binding Passwort}"></Entry>
                 </Border>
             </VerticalStackLayout>
 
@@ -74,6 +74,20 @@
                     HorizontalOptions="Center"
                     Command="{Binding AnmeldenCommand}">
             </Button>
+            <Button Text="Show List of Benutzer"
+                    Grid.Row="3"
+                    Command="{Binding ShowListCommand}">
+            </Button>
+            <CollectionView Grid.Row="0" ItemsSource="{Binding BenutzerListe}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Benutzername}" />
+                            <Label Text="{Binding Passwort}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </Grid>
 </ContentPage>

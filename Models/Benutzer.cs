@@ -5,15 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Accounter.ViewModels;
+using SQLite;
 
 namespace Accounter.Models
 {
-    public partial class Benutzer : ObservableObject
+    public class Benutzer 
     {
         //Properties
-        [ObservableProperty]
-        public string _benutzername;
-        [ObservableProperty]
-        public string _passwort;
+        //[PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Benutzername { get; set; }
+        public int Passwort { get; set; }
+
     }
 }

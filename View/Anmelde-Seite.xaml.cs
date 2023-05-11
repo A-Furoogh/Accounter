@@ -4,9 +4,9 @@ using Accounter.ViewModels;
 namespace Accounter.View;
 public partial class Anmelde_Seite : ContentPage
 {
-	public Anmelde_Seite()
+	public Anmelde_Seite(Anmelde_SeiteViewModel vm)
 	{
 		InitializeComponent();
-        BindingContext = new Anmelde_SeiteViewModel();
+        this.BindingContext = vm;
 	}
 }
