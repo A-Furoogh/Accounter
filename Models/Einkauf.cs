@@ -10,9 +10,6 @@ namespace Accounter.Models
         {
             public int BestellID { get; set; }
             public DateTime BestellDatum { get; set; }
-            public DateTime LieferDatum { get; set; }
-            public string Lieferer { get; set; }
-            public int ArtikelID { get; set; }
             public int BestellAnzahl { get; set; }
             public decimal EinkaufsPreis { get; set; }
         }

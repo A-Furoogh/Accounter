@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Accounter.Services
 {
-    internal class BenutzerService : IBenutzerService
+    public class BenutzerService : IBenutzerService
     {
         public SQLiteAsyncConnection _dbConnection;
         public BenutzerService() 

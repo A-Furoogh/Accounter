@@ -74,9 +74,15 @@
                     HorizontalOptions="Center"
                     Command="{Binding AnmeldenCommand}">
             </Button>
-            <Button Text="Show List of Benutzer"
+            <!--<Button Text="Show List of Benutzer"
                     Grid.Row="3"
                     Command="{Binding ShowListCommand}">
+            </Button>
+            <Button Text="Benutzer löschen"
+                    Grid.Row="2"
+                    Command="{Binding DeleteBenutzerCommand}"
+                    HeightRequest="50"
+                    WidthRequest="60">
             </Button>
             <CollectionView Grid.Row="0" ItemsSource="{Binding BenutzerListe}">
                 <CollectionView.ItemTemplate>
@@ -87,7 +93,14 @@
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView>-->
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Grid.RowSpan="4">
+                
+            </ActivityIndicator>
         </Grid>
     </Grid>
 </ContentPage>

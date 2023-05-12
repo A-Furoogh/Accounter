@@ -8,12 +8,11 @@ namespace Accounter.Models
 {
         public class Ausleihe
         {
-            public int AusleihID { get; set; }
-            public int KundenID { get; set; }
-            public int ArtikelID { get; set; }
-            public DateTime AusleihDatum { get; set; }
+            public int ArtID { get; set; }
+            public int KundID { get; set; }
+            public DateTime AusleiheDatum { get; set; }
             public DateTime AbgabeFrist { get; set; }
-            public int ArtikelAnzahl { get; set; }
+            public int ArtAnzahl { get; set; }
         }
 
 }

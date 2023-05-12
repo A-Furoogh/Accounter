@@ -24,14 +24,17 @@ public static class MauiProgram
 #endif
 		//Services
 		builder.Services.AddSingleton<IBenutzerService, BenutzerService>();
+		builder.Services.AddSingleton<IArtikelService, ArtikelService>();
 
         //Views
         builder.Services.AddSingleton<Haupt_Seite>();
         builder.Services.AddSingleton<Anmelde_Seite>();
+		builder.Services.AddSingleton<Artikel_Seite>();
 
 		//ViewModels
 		builder.Services.AddSingleton<Anmelde_SeiteViewModel>();
 		builder.Services.AddSingleton<Haupt_SeiteVM>();
+		builder.Services.AddSingleton<ArtikelVM>();
 
 
 

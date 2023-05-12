@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace Accounter.ViewModels
+namespace Accounter.Services
 {
-    public class ArtikelVM
+    internal class ArtikelService : IArtikelService
     {
     }
 }

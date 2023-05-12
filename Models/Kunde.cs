@@ -8,9 +8,10 @@ namespace Accounter.Models
 {
         public class Kunde
         {
-            public int KundenID { get; set; }
+            public int KundID { get; set; }
             public string KundName { get; set; }
-            public string KundNachname { get; set; }
+            public int Matrik { get; set; }
+            public string Email { get; set; }
             public string Vermerk { get; set; }
         }
 }
