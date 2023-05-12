@@ -12,7 +12,7 @@ namespace Accounter.Models
     public class Benutzer 
     {
         //Properties
-        //[PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Benutzername { get; set; }
         public int Passwort { get; set; }
