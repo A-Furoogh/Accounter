@@ -9,6 +9,7 @@ using SQLite;
 
 namespace Accounter.Models
 {
+    [Table("Benutzer")]
     public class Benutzer 
     {
         //Properties

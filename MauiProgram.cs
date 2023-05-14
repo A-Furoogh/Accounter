@@ -17,13 +17,14 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+		string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Accounter.db");
 		
 
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
 		//Services
-		builder.Services.AddSingleton<IBenutzerService, BenutzerService>();
+		builder.Services.AddSingleton<IBenutzerService, BenutzerService>(s => ActivatorUtilities.CreateInstance<BenutzerService>(s, dbPath));
 		builder.Services.AddSingleton<IArtikelService, ArtikelService>();
 
         //Views

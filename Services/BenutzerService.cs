@@ -10,32 +10,39 @@ namespace Accounter.Services
 {
     public class BenutzerService : IBenutzerService
     {
-        public SQLiteAsyncConnection _dbConnection;
+        private SQLiteAsyncConnection _dbConnection;
+        string _dbPath;
         public BenutzerService() 
         {
-            SetupDatabase();
+
         }
 
-        private async void SetupDatabase()
+        private async Task SetupDatabase()
         {
-            if(_dbConnection == null) 
-            {
-                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Accounter.db3");
-                _dbConnection = new SQLiteAsyncConnection(dbPath);
-                await _dbConnection.CreateTableAsync<Benutzer>();
-            }
-            
-        }
 
+            if(_dbConnection is not null)
+                return;
+
+            _dbConnection = new SQLiteAsyncConnection(_dbPath);
+            await _dbConnection.CreateTableAsync<Benutzer>();
+        }
         public Task<int> DeleteBenutzer(Benutzer benutzer)
         {
             return _dbConnection.DeleteAsync(benutzer);
         }
 
-        public Task<List<Benutzer>> GetBenutzerList()
+        public async Task<List<Benutzer>> GetBenutzerList()
         {
-            var benutzerListe = _dbConnection.Table<Benutzer>().ToListAsync();
-            return benutzerListe;
+            try 
+            {
+                await SetupDatabase();
+                return await _dbConnection.Table<Benutzer>().ToListAsync();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return new List<Benutzer>();
         }
 
         public Task<int> UpdateBenutzer(Benutzer benutzer)
@@ -43,9 +50,18 @@ namespace Accounter.Services
             return _dbConnection.UpdateAsync(benutzer);
         }
 
-        public Task<int> AddBenutzer(Benutzer benutzer)
+        public async Task<int> AddBenutzer(Benutzer benutzer)
         {
-            return _dbConnection.InsertAsync(benutzer);
+            ArgumentException.ThrowIfNullOrEmpty(nameof(benutzer));
+            try
+            {
+                await SetupDatabase();
+                return await _dbConnection.InsertAsync(benutzer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
