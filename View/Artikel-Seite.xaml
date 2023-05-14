@@ -5,7 +5,6 @@
              Title="Artikel_Seite"
              Style="{StaticResource GlobalContentPageStyle}"
              NavigationPage.HasNavigationBar="True">
-    
     <VerticalStackLayout>
         <Grid RowDefinitions="200,*">
             <Button Text="First One" Grid.Row="0" BackgroundColor="Bisque"/>

@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Accounter.View"  
     Shell.FlyoutBehavior="Flyout">
-
+    
     <ShellContent
         Title="Haupt Seite"
         ContentTemplate="{DataTemplate local:Haupt_Seite}"
@@ -15,15 +15,5 @@
         Title="Artikel Seite"
         ContentTemplate="{DataTemplate local:Artikel_Seite}"
         Route="Haupt_Seite" />
-    <NavigationPage.TitleView>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Label Text="Artikel" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
-            <Image Source="what.png" Grid.Column="1" VerticalOptions="CenterAndExpand" Margin="5,0,0,0" />
-        </Grid>
-    </NavigationPage.TitleView>
 
 </Shell>

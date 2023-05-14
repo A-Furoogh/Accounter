@@ -15,16 +15,13 @@ namespace Accounter.ViewModels
 {
     public partial class Anmelde_SeiteViewModel : BaseViewModel
     {
-        //Initial-Benutzer-Daten
-        Benutzer bb = new Benutzer() { Benutzername = "Admin", Passwort = "12345"};
-        Benutzer b1 = new Benutzer() { Benutzername = "User", Passwort = "12345"};
+        
 
         public BenutzerService _benutzerService;
         public Anmelde_SeiteViewModel(BenutzerService benutzerService)
         {
             _benutzerService = benutzerService;
-            _benutzerService.AddBenutzer(bb);
-            _benutzerService.AddBenutzer(b1);
+            
             Title = "Anmelden Seite";
         }
         [ObservableProperty]

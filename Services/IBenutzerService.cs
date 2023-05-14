@@ -10,8 +10,8 @@ namespace Accounter.Services
     public interface IBenutzerService
     {
         Task<List<Benutzer>> GetBenutzerList();
-        Task<int> AddBenutzer(Benutzer benutzer);
-        Task<int> UpdateBenutzer(Benutzer benutzer);
-        Task<int> DeleteBenutzer(Benutzer benutzer);
+        Task AddBenutzer(Benutzer benutzer);
+        Task UpdateBenutzer(Benutzer benutzer);
+        Task DeleteBenutzer(Benutzer benutzer);
     }
 }
