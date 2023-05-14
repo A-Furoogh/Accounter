@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Accounter.View.Artikel_Seite"
              Title="Artikel_Seite"
-             Style="{StaticResource GlobalContentPageStyle}">
+             Style="{StaticResource GlobalContentPageStyle}"
+             NavigationPage.HasNavigationBar="True">
+    
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Artikel Seite"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid RowDefinitions="200,*">
+            <Button Text="First One" Grid.Row="0" BackgroundColor="Bisque"/>
+            <Button Text="Second One" Grid.Row="1" BackgroundColor="Aqua"/>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

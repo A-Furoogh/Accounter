@@ -15,5 +15,15 @@
         Title="Artikel Seite"
         ContentTemplate="{DataTemplate local:Artikel_Seite}"
         Route="Haupt_Seite" />
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Text="Artikel" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+            <Image Source="what.png" Grid.Column="1" VerticalOptions="CenterAndExpand" Margin="5,0,0,0" />
+        </Grid>
+    </NavigationPage.TitleView>
 
 </Shell>

@@ -12,6 +12,6 @@ public partial class Haupt_Seite : ContentPage
 
     private void BtnArtikelSeite(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Artikel_Seite());
+        Navigation.PushAsync(new Artikel_Seite(new ArtikelVM()));
     }
 }
