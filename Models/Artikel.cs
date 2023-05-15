@@ -20,6 +20,7 @@ namespace Accounter.Models
             public string LagerPlatz { get; set; }
             public int BestandLimit { get; set; }
             public int Barcode { get; set; }
+            public string Image { get; set; }
         }
     }
 

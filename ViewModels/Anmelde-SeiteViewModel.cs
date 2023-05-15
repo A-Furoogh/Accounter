@@ -16,9 +16,8 @@ namespace Accounter.ViewModels
     public partial class Anmelde_SeiteViewModel : BaseViewModel
     {
         
-
-        public BenutzerService _benutzerService;
-        public Anmelde_SeiteViewModel(BenutzerService benutzerService)
+        public IBenutzerService _benutzerService;
+        public Anmelde_SeiteViewModel(IBenutzerService benutzerService)
         {
             _benutzerService = benutzerService;
             
@@ -58,6 +57,12 @@ namespace Accounter.ViewModels
         public async void Anmelden()
         {
             IsBusy = true;
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                await Application.Current.MainPage.DisplayAlert("Keine Internetverbindung", "Bitte stellen Sie eine Internetverbindung her", "OK");
+                IsBusy = false;
+                return;
+            }
             var benutzer = await _benutzerService.GetBenutzerList();
             if (!string.IsNullOrEmpty(benutzer.ToString()))
             {

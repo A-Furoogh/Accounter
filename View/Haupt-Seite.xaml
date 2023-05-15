@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:Accounter.ViewModels"
+             xmlns:ViewModels="clr-namespace:Accounter.ViewModels"
+             xmlns:Models="clr-namespace:Accounter.Models"
+             x:DataType="ViewModels:Haupt_SeiteVM"
              x:Class="Accounter.View.Haupt_Seite"
-             Title="Haupt_Seite"
+             Title="{Binding Title}"
              Style="{StaticResource GlobalContentPageStyle}"
              >
+    <!--<NavigationPage.TitleView>
+        <Grid BackgroundColor="Azure">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Text="Accounterrrrrr"
+                   FontSize="Large"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"/>
+            <Image Grid.Column="1"
+                   Source="what.png"
+                   Aspect="AspectFill"
+                   HeightRequest="50"
+                   WidthRequest="50"/>
+        </Grid>
+    </NavigationPage.TitleView>-->
+        
     <VerticalStackLayout>
         <Label 
             Text="Welcome to Haupt Seite!"

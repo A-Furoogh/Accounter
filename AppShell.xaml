@@ -4,8 +4,57 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Accounter.View"  
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="Flyout" 
+    FlyoutBackground="Azure"
+    >
+    <!--<Shell.TitleView>
+        <Grid ColumnDefinitions="*,auto"
+              ColumnSpacing="10">
+            
+            <Label Grid.Column="0"
+                   Text="{}" 
+                   HorizontalOptions="Center"
+                   TextColor="Beige"
+                   FontSize="Title"/>
+            
+            <Image Grid.Column="1"
+                   Source="what.png"
+                   HeightRequest="50" 
+                   WidthRequest="50"
+                   Aspect="AspectFill"/>
+        </Grid>
+    </Shell.TitleView>-->
     
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="Bisque">
+            <Grid ColumnDefinitions="auto,*"
+                  ColumnSpacing="8"
+                  Margin="20"
+                  >
+                <Image Grid.Column="0"
+                       Source="what.png"
+                       Aspect="AspectFill"
+                       HeightRequest="50"
+                       WidthRequest="50"/>
+                <Label Grid.Column="1"
+                       Text="Accounter"
+                       FontSize="Large"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+            </Grid>
+        </Grid>
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutFooter>
+        <Grid Margin="10" HorizontalOptions="Center">
+            <HorizontalStackLayout 
+                VerticalOptions="Center"
+                Spacing="10">
+                    <Label Text="Version 1.0.0" />
+                    <Label Text="© 2023" />
+            </HorizontalStackLayout>
+        </Grid>
+    </Shell.FlyoutFooter>
     <ShellContent
         Title="Haupt Seite"
         ContentTemplate="{DataTemplate local:Haupt_Seite}"
@@ -15,5 +64,5 @@
         Title="Artikel Seite"
         ContentTemplate="{DataTemplate local:Artikel_Seite}"
         Route="Haupt_Seite" />
-
+    
 </Shell>

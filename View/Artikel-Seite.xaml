@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Models="clr-namespace:Accounter.Models"
+             xmlns:ViewModels="clr-namespace:Accounter.ViewModels"
+             x:DataType="ViewModels:ArtikelVM"
              x:Class="Accounter.View.Artikel_Seite"
-             Title="Artikel_Seite"
+             Title="{Binding Title}"
              Style="{StaticResource GlobalContentPageStyle}"
              NavigationPage.HasNavigationBar="True">
-    <VerticalStackLayout>
-        <Grid RowDefinitions="200,*">
-            <Button Text="First One" Grid.Row="0" BackgroundColor="Bisque"/>
-            <Button Text="Second One" Grid.Row="1" BackgroundColor="Aqua"/>
-        </Grid>
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="60,*,70" 
+          RowSpacing="10">
+        
+        <SearchBar Grid.Row="0"
+                   Placeholder="Artikel suchen"
+                   HeightRequest="70"
+                   WidthRequest="200"/>
+        
+        <Frame     Grid.Row="1"
+                   BackgroundColor="Bisque"
+                   Margin="5,0,5,5"
+                   CornerRadius="10">
+            
+            <CollectionView BackgroundColor="Transparent"
+                            ItemsSource="{Binding Artikels}"
+                            SelectionMode="Single"
+                            >
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Models:Artikel">
+                        <Grid Padding="0"
+                              Margin="0,5,0,5">
+                            <Frame HeightRequest="125"
+                                   Padding="5">
+                                <Grid ColumnDefinitions="125,*">
+                                      
+                                    <Image  Grid.Column="0"
+                                            Source="{Binding Image}"
+                                            Aspect="AspectFill"
+                                            WidthRequest="115"
+                                            HeightRequest="115"/>
+                                    
+                                    <Label  Grid.Column="1"
+                                            Text="{Binding ArtName}"
+                                            />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+        </Frame>
+        <HorizontalStackLayout Grid.Row="2">
+        <Button 
+                Text="Neuer Artikel"
+                HeightRequest="70"
+                WidthRequest="300"
+                Margin="0,0,0,10"
+                Command="{Binding AddArtikelCommand}"
+                IsEnabled="{Binding IsNotBusy}"/>
+        <Button 
+                Text="Refresh"
+                HeightRequest="70"
+                WidthRequest="100"
+                Margin="5,0,0,10"
+                HorizontalOptions="End"
+                Command="{Binding GetArtikelListCommand}"
+                IsEnabled="{Binding IsNotBusy}"/>
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>

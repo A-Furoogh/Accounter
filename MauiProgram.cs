@@ -37,9 +37,6 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ArtikelVM>();
 
 
-
-
-
         return builder.Build();
 	}
 }

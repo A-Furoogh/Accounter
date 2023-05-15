@@ -11,5 +11,6 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new Anmelde_Seite(new Anmelde_SeiteViewModel(new BenutzerService()));
+		
 	}
 }

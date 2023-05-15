@@ -1,6 +1,4 @@
-﻿
-
-using Accounter.View;
+﻿using Accounter.View;
 
 namespace Accounter;
 

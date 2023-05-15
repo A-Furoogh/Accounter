@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Accounter.ViewModels"
              x:Class="Accounter.View.Anmelde_Seite"
-             Title="Anmelde_Seite"
+             Title="{Binding Title}"
              x:DataType="viewmodel:Anmelde_SeiteViewModel">
     
     <ContentPage.Resources>

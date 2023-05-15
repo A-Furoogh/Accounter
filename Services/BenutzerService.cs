@@ -23,8 +23,12 @@ namespace Accounter.Services
 
         private async Task Init()
         {
+            
             if (dbConnection != null)
+            {
                 return;
+            }
+                
 
             var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Accounter.db");
 
@@ -43,8 +47,7 @@ namespace Accounter.Services
         {
             await Init();
 
-            return await dbConnection.Table<Benutzer>().ToListAsync();
-            
+            return await dbConnection.Table<Benutzer>().ToListAsync();   
         }
 
         public async Task UpdateBenutzer(Benutzer benutzer)
@@ -60,5 +63,6 @@ namespace Accounter.Services
             
             await dbConnection.InsertAsync(benutzer);
         }
-    }
+        
+}
 }
