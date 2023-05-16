@@ -24,9 +24,9 @@ namespace Accounter.ViewModels
             Title = "Anmelden Seite";
         }
         [ObservableProperty]
-        public string benutzername;
+        public string _benutzername;
         [ObservableProperty]
-        public string passwort;
+        public string _passwort;
 
         //[RelayCommand]
         //public async void ShowList()

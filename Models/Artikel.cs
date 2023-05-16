@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Accounter.Models
 {
-   
+
+        [Table("Artikel")]
         public class Artikel
         {
+            [PrimaryKey, AutoIncrement]
             public int ArtID { get; set; }
             public string ArtName { get; set; }
             public bool Ausleihbar { get; set; }

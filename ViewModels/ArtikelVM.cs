@@ -11,6 +11,8 @@ using Accounter.Models;
 using Accounter.Services;
 using System.Diagnostics.Contracts;
 using System.Diagnostics;
+using Microsoft.Maui.Controls;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Accounter.ViewModels
 {
@@ -23,9 +25,12 @@ namespace Accounter.ViewModels
             _artikelService = artikelService;
             Title = "Artikel";
         }
+        [ObservableProperty]
+        public string _searchedWord;
+        
 
         [RelayCommand]
-        async Task GetArtikelList()
+        public async Task GetArtikelList()
         {
             if (IsBusy) { return; }
             try
@@ -72,5 +77,47 @@ namespace Accounter.ViewModels
                 IsBusy = false;
             }
         }
+        //DeleteArtikelCommand
+        [RelayCommand]
+        public async Task DeleteArtikel(Artikel artikel)
+        {
+            if (IsBusy) { return; }
+            try
+            {
+                IsBusy = true;
+                await _artikelService.DeleteArtikel(artikel);
+                Artikels.Remove(artikel);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                await Shell.Current.DisplayAlert("Error!",$"Unable to delete Artikel: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        //UpdateArtikelCommand
+        [RelayCommand]
+        public async Task UpdateArtikel(Artikel artikel)
+        {
+            if (IsBusy) { return; }
+            try
+            {
+                IsBusy = true;
+                await _artikelService.UpdateArtikel(artikel);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                await Shell.Current.DisplayAlert("Error!", $"Unable to update Artikel: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        
     }
 }

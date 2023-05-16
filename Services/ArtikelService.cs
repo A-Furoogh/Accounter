@@ -53,7 +53,9 @@ namespace Accounter.Services
 
         public async Task UpdateArtikel(Artikel artikel)
         {
-            throw new NotImplementedException();
+            await Init();
+
+            await dbConnection.UpdateAsync(artikel);
         }
         public async Task AddArtikel(Artikel artikel)
         {
@@ -64,7 +66,9 @@ namespace Accounter.Services
 
         public async Task DeleteArtikel(Artikel artikel)
         {
-            throw new NotImplementedException();
+            await Init();
+
+            await dbConnection.DeleteAsync(artikel);
         }
     }
 }

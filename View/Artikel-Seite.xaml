@@ -15,42 +15,64 @@
         <SearchBar Grid.Row="0"
                    Placeholder="Artikel suchen"
                    HeightRequest="70"
-                   WidthRequest="200"/>
+                   WidthRequest="200"
+                   />
         
         <Frame     Grid.Row="1"
-                   BackgroundColor="Bisque"
+                   BackgroundColor="Transparent"
                    Margin="5,0,5,5"
-                   CornerRadius="10">
-            
+                   CornerRadius="10" Padding="5">
+            <!--<RefreshView Command="{Binding GetArtikelListCommand}"
+                         IsRefreshing="{Binding IsBusy}">-->
+                
             <CollectionView BackgroundColor="Transparent"
                             ItemsSource="{Binding Artikels}"
                             SelectionMode="Single"
-                            >
+                            EmptyView="Noch keine Daten">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Models:Artikel">
+                        
                         <Grid Padding="0"
                               Margin="0,5,0,5">
-                            <Frame HeightRequest="125"
-                                   Padding="5">
-                                <Grid ColumnDefinitions="125,*">
+                            <SwipeView BackgroundColor="Transparent">
+                                <SwipeView.RightItems>
+                                    <SwipeItems Mode="Reveal">
+                                        <SwipeItem Text="Löschen"
+                                               BackgroundColor="Red"
+                                               Command="{Binding Source={x:RelativeSource AncestorType={x:Type ViewModels:ArtikelVM}},Path=DeleteArtikelCommand}"
+                                               CommandParameter="{Binding .}"/>
+                                        <SwipeItem Text="Update"
+                                               BackgroundColor="LightSeaGreen"
+                                               Command="{Binding Source={x:RelativeSource AncestorType={x:Type ViewModels:ArtikelVM}},Path=UpdateArtikelCommand}"
+                                               CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Frame HeightRequest="135"
+                                       Padding="5">
+                                    <Grid ColumnDefinitions="*,*">
                                       
-                                    <Image  Grid.Column="0"
-                                            Source="{Binding Image}"
-                                            Aspect="AspectFill"
-                                            WidthRequest="115"
-                                            HeightRequest="115"/>
+                                        <Image  Grid.Column="0"
+                                                Source="{Binding Image}"
+                                                Aspect="AspectFill"
+                                                WidthRequest="100"
+                                                HeightRequest="100"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Start"/>
                                     
-                                    <Label  Grid.Column="1"
-                                            Text="{Binding ArtName}"
-                                            />
-                                </Grid>
-                            </Frame>
+                                        <Label  Grid.Column="1"
+                                                Text="{Binding ArtName}"
+                                                />
+                                    </Grid>
+                                </Frame>
+                            </SwipeView>
                         </Grid>
+                        
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 
             </CollectionView>
+            <!--</RefreshView>-->
         </Frame>
         <HorizontalStackLayout Grid.Row="2">
         <Button 
