@@ -18,15 +18,19 @@ namespace Accounter.ViewModels
 {
     public partial class ArtikelVM : BaseViewModel
     {
-        public ObservableCollection<Artikel> Artikels { get; set; } = new();
+        public ObservableCollection<Artikel> Artikels { get; set; }
+        public ObservableCollection<Artikel> SearchedArtikels { get; set; }
+        [ObservableProperty]
+        public string _searchedWord;
+
         public IArtikelService _artikelService;
         public ArtikelVM(IArtikelService artikelService) 
         {
             _artikelService = artikelService;
             Title = "Artikel";
+            Artikels = new ObservableCollection<Artikel>();
+            SearchedArtikels = new ObservableCollection<Artikel>();
         }
-        [ObservableProperty]
-        public string _searchedWord;
         
 
         [RelayCommand]
@@ -118,6 +122,35 @@ namespace Accounter.ViewModels
                 IsBusy = false;
             }
         }
-        
+        [RelayCommand]
+        public async Task PerformSearch()
+        {
+            if (IsBusy) { return; }
+            if (string.IsNullOrEmpty(SearchedWord)) { SearchedArtikels = Artikels; return; }
+            else
+            {
+                try
+                {
+                    IsBusy = true;
+                    var filteredArtikels = Artikels.Where(a => a.ArtName.Contains(SearchedWord)).ToList();
+                    SearchedArtikels.Clear();
+                    foreach (var artikel in filteredArtikels)
+                    {
+                        SearchedArtikels.Add(artikel);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    await Shell.Current.DisplayAlert("Error!", $"Unable to get Artikels Search: {ex.Message}", "OK");
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+            }
+
+        }
+
     }
 }

@@ -12,23 +12,41 @@
     <Grid RowDefinitions="60,*,70" 
           RowSpacing="10">
         
-        <SearchBar Grid.Row="0"
+        <Frame Grid.Row="0"
+               BackgroundColor="Transparent"
+               Margin="2" Padding="5"
+               CornerRadius="20"
+               BorderColor="CornflowerBlue">
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
+                <Entry 
                    Placeholder="Artikel suchen"
+                   PlaceholderColor="BlanchedAlmond"
                    HeightRequest="70"
                    WidthRequest="200"
-                   />
+                   FontSize="15"
+                   Text="{Binding SearchedWord}"/>
+                <Button
+                    Text="Suchen"
+                    HeightRequest="70"
+                    WidthRequest="100"
+                    Command="{Binding PerformSearchCommand}"
+                    IsEnabled="{Binding IsNotBusy}"/>
+            </HorizontalStackLayout>
+        </Frame>
         
         <Frame     Grid.Row="1"
                    BackgroundColor="Transparent"
                    Margin="5,0,5,5"
-                   CornerRadius="10" Padding="5">
+                   CornerRadius="10" Padding="5"
+                   BorderColor="CornflowerBlue">
             <!--<RefreshView Command="{Binding GetArtikelListCommand}"
                          IsRefreshing="{Binding IsBusy}">-->
                 
             <CollectionView BackgroundColor="Transparent"
                             ItemsSource="{Binding Artikels}"
                             SelectionMode="Single"
-                            EmptyView="Noch keine Daten">
+                            EmptyView="Noch keine Daten"
+                            >
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Models:Artikel">

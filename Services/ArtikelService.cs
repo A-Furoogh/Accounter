@@ -13,18 +13,18 @@ namespace Accounter.Services
     {
         static SQLiteAsyncConnection dbConnection;
         // Initial-Artikel-Daten
-        Artikel a1 = new Artikel() { ArtName = "Kaffee", PreisProTag = 2.6M, Image = "what.png"};
-        Artikel a2 = new Artikel() { ArtName = "Tee", PreisProTag = 2.00M, Image = "what.png" };
-        Artikel a3 = new Artikel() { ArtName = "Wasser", PreisProTag = 1.50M , Image = "what.png" };
-        Artikel a4 = new Artikel() { ArtName = "Cola", PreisProTag = 2.50M , Image = "what.png" };
-        Artikel a5 = new Artikel() { ArtName = "Bier", PreisProTag = 3.00M , Image = "what.png" };
+        //Artikel a1 = new Artikel() { ArtName = "Kaffee", PreisProTag = 2.6M, Image = "what.png" };
+        //Artikel a2 = new Artikel() { ArtName = "Tee", PreisProTag = 2.00M, Image = "what.png" };
+        //Artikel a3 = new Artikel() { ArtName = "Wasser", PreisProTag = 1.50M, Image = "what.png" };
+        //Artikel a4 = new Artikel() { ArtName = "Cola", PreisProTag = 2.50M, Image = "what.png" };
+        //Artikel a5 = new Artikel() { ArtName = "Bier", PreisProTag = 3.00M, Image = "what.png" };
         public ArtikelService()
         {
-            _ = AddArtikel(a1);
-            _ = AddArtikel(a2);
-            _ = AddArtikel(a3);
-            _ = AddArtikel(a4);
-            _ = AddArtikel(a5);
+            //_ = AddArtikel(a1);
+            //_ = AddArtikel(a2);
+            //_ = AddArtikel(a3);
+            //_ = AddArtikel(a4);
+            //_ = AddArtikel(a5);
 
             _ = Init();
         }
@@ -47,7 +47,6 @@ namespace Accounter.Services
         public async Task<List<Artikel>> GetArtikelList()
         {
             await Init();
-
             return await dbConnection.Table<Artikel>().ToListAsync();
         }
 
