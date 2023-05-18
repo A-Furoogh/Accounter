@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Models="clr-namespace:Accounter.Models"
+             xmlns:ViewModels="clr-namespace:Accounter.ViewModels"
+             x:DataType="ViewModels:ArtikelVM"
              x:Class="Accounter.View.NeuerArtikel_Seite"
              Title="NeuerArtikel_Seite" 
              Style="{StaticResource GlobalContentPageStyle}">
@@ -31,7 +34,7 @@
             <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="Transparent" Padding="0" BorderColor="CadetBlue">
                 <VerticalStackLayout>
                     <Label Text="Artikelname:" Margin="10,10,0,0"/>
-                    <Entry Text="{Binding ArtikelName}" WidthRequest="150"/>
+                    <Entry Text="{Binding ArtName}" WidthRequest="150"/>
                 </VerticalStackLayout>
             </Frame>
             <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="Transparent" Padding="0" BorderColor="CadetBlue">
@@ -49,7 +52,7 @@
             <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="Transparent" Padding="0" BorderColor="DeepSkyBlue">
                 <VerticalStackLayout >
                     <Label Text="Bestand:" Margin="10,10,0,0"/>
-                    <Entry Text="{Binding Anzahlager}" Keyboard="Numeric" WidthRequest="150"/>
+                    <Entry Text="{Binding Anzahllager}" Keyboard="Numeric" WidthRequest="150"/>
                 </VerticalStackLayout>
             </Frame>
             <Frame Grid.Column="0" Grid.Row="2" BackgroundColor="Transparent" Padding="0" BorderColor="CadetBlue">
@@ -100,7 +103,7 @@
             </Frame>
             <HorizontalStackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" Spacing="10">
                 <Label Text="Foto auswählen:" VerticalOptions="Center"/>
-                <Button Text="Foto auswählen" VerticalOptions="Center"/>
+                <Button Text="Foto auswählen" VerticalOptions="Center" Command="{Binding FotoAuswahlCommand}"/>
             </HorizontalStackLayout>
 
         </Grid>

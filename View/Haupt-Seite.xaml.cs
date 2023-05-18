@@ -1,6 +1,7 @@
 using Accounter.ViewModels;
 using Accounter.Services;
-
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using Xamarin.Essentials;
 namespace Accounter.View;
 
 public partial class Haupt_Seite : ContentPage

@@ -4,7 +4,7 @@ using Accounter.ViewModels;
 namespace Accounter.View;
 
 public partial class Artikel_Seite : ContentPage
-{ArtikelVM vm = new(new ArtikelService());
+{
 	public Artikel_Seite(ArtikelVM vm)
 	{
 		InitializeComponent();

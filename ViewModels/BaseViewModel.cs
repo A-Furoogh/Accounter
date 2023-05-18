@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Accounter.ViewModels
 {
-    
     public partial class BaseViewModel : ObservableObject
     {
         [ObservableProperty]
