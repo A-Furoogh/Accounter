@@ -43,7 +43,7 @@
                          IsRefreshing="{Binding IsBusy}">-->
                 
             <CollectionView BackgroundColor="Transparent"
-                            ItemsSource="{Binding Artikels}"
+                            ItemsSource="{Binding SearchedArtikels}"
                             SelectionMode="Single"
                             EmptyView="Noch keine Daten"
                             >
@@ -98,16 +98,16 @@
                 HeightRequest="70"
                 WidthRequest="300"
                 Margin="0,0,0,10"
-                Command="{Binding AddArtikelCommand}"
+                Command="{Binding NeuerArtikelSeiteCommand}"
                 IsEnabled="{Binding IsNotBusy}"/>
-        <Button 
+        <!--<Button 
                 Text="Refresh"
                 HeightRequest="70"
                 WidthRequest="100"
                 Margin="5,0,0,10"
                 HorizontalOptions="End"
                 Command="{Binding GetArtikelListCommand}"
-                IsEnabled="{Binding IsNotBusy}"/>
+                IsEnabled="{Binding IsNotBusy}"/>-->
         </HorizontalStackLayout>
     </Grid>
 </ContentPage>

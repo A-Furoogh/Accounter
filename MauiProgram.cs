@@ -30,9 +30,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<Haupt_Seite>();
         builder.Services.AddSingleton<Anmelde_Seite>();
 		builder.Services.AddSingleton<Artikel_Seite>();
+        builder.Services.AddSingleton<NeuerArtikel_Seite>();
 
-		//ViewModels
-		builder.Services.AddSingleton<Anmelde_SeiteViewModel>();
+        //ViewModels
+        builder.Services.AddSingleton<Anmelde_SeiteViewModel>();
 		builder.Services.AddSingleton<Haupt_SeiteVM>();
 		builder.Services.AddSingleton<ArtikelVM>();
 

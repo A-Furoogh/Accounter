@@ -30,6 +30,7 @@ namespace Accounter.ViewModels
             Title = "Artikel";
             Artikels = new ObservableCollection<Artikel>();
             SearchedArtikels = new ObservableCollection<Artikel>();
+            _ = PerformSearch();
         }
         
 
@@ -91,6 +92,7 @@ namespace Accounter.ViewModels
                 IsBusy = true;
                 await _artikelService.DeleteArtikel(artikel);
                 Artikels.Remove(artikel);
+                SearchedArtikels.Remove(artikel);
             }
             catch (Exception ex)
             {
@@ -126,30 +128,38 @@ namespace Accounter.ViewModels
         public async Task PerformSearch()
         {
             if (IsBusy) { return; }
-            if (string.IsNullOrEmpty(SearchedWord)) { SearchedArtikels = Artikels; return; }
+            else if (string.IsNullOrEmpty(SearchedWord)) 
+            { 
+                SearchedArtikels.Clear();
+                await GetArtikelList();
+                for(int i=0; i< Artikels.Count;)
+                {
+                    SearchedArtikels.Add(Artikels[i]);
+                    i++;
+                }
+                return;
+            }
             else
             {
-                try
+                IsBusy = true;
+                SearchedArtikels.Clear();
+
+                foreach (var artikel in Artikels)
                 {
-                    IsBusy = true;
-                    var filteredArtikels = Artikels.Where(a => a.ArtName.Contains(SearchedWord)).ToList();
-                    SearchedArtikels.Clear();
-                    foreach (var artikel in filteredArtikels)
-                    {
-                        SearchedArtikels.Add(artikel);
-                    }
+                   if (artikel.ArtName.ToLower().Contains(SearchedWord.ToLower()))
+                   {
+                       SearchedArtikels.Add(artikel);
+                   }
                 }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                    await Shell.Current.DisplayAlert("Error!", $"Unable to get Artikels Search: {ex.Message}", "OK");
-                }
-                finally
-                {
-                    IsBusy = false;
-                }
+                IsBusy = false;
+                return;
             }
 
+        }
+        [RelayCommand]
+        public async Task NeuerArtikelSeite() 
+        { 
+            await Shell.Current.Navigation.PushModalAsync(new NeuerArtikel_Seite());
         }
 
     }

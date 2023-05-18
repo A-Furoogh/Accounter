@@ -61,7 +61,7 @@
                          StrokeShape="RoundRectangle 10,10,10,10"
                          WidthRequest="250"
                          HeightRequest="50">
-                    <Entry Text="{Binding Passwort}"></Entry>
+                    <Entry Text="{Binding Passwort}" IsPassword="True"></Entry>
                 </Border>
             </VerticalStackLayout>
 
