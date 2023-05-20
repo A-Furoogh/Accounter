@@ -18,8 +18,18 @@ using Microsoft.Maui.Controls.PlatformConfiguration;
 
 namespace Accounter.ViewModels
 {
-    public class AusleiheVM :BaseViewModel
+    public partial class AusleiheVM :BaseViewModel
     {
+        public IAusleiheService _ausleiheService;
+        [ObservableProperty]
+        public string _artName;
+        public AusleiheVM(IAusleiheService ausleiheService,Artikel artikel)
+        {
+            _ausleiheService = ausleiheService;
+            ArtName = artikel.ArtName.ToString();
+        }
+        
 
+        
     }
 }

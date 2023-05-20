@@ -243,5 +243,10 @@ namespace Accounter.ViewModels
         { 
             await Shell.Current.Navigation.PushModalAsync(new NeuerArtikel_Seite(new ArtikelVM(new ArtikelService())));
         }
+        [RelayCommand]
+        public async Task Ausleihen(Artikel artikel)
+        {
+            await Shell.Current.Navigation.PushModalAsync(new NeueAusleihe_Seite(new AusleiheVM(new AusleiheService(),artikel)));
+        }
     }
 }

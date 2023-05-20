@@ -70,5 +70,11 @@ namespace Accounter.Services
 
             await dbConnection.DeleteAsync(artikel);
         }
+        // Delete all Artikel
+        public async Task DeleteAllArtikels()
+        {
+            await Init();
+            await dbConnection.DeleteAllAsync<Artikel>();
+        }
     }
 }

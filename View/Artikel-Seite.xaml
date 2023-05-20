@@ -63,6 +63,14 @@
                                                CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem Text="Ausleihen"
+                                               BackgroundColor="GreenYellow"
+                                               Command="{Binding Source={x:RelativeSource AncestorType={x:Type ViewModels:AusleiheVM}},Path=AusleihenCommand}"
+                                               CommandParameter="{Binding .}"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
                             <Frame HeightRequest="135"
                                        Padding="5">
                                 <Grid ColumnDefinitions="*,*">

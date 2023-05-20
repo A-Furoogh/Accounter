@@ -14,5 +14,6 @@ namespace Accounter.Services
         Task AddArtikel(Artikel artikel);
         Task UpdateArtikel(Artikel artikel);
         Task DeleteArtikel(Artikel artikel);
+        Task DeleteAllArtikels();
     }
 }
