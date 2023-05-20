@@ -25,17 +25,20 @@ public static class MauiProgram
 		//Services
 		builder.Services.AddSingleton<IBenutzerService, BenutzerService>();
 		builder.Services.AddSingleton<IArtikelService, ArtikelService>();
+		builder.Services.AddSingleton<IAusleiheService, AusleiheService>();
 
         //Views
         builder.Services.AddSingleton<Haupt_Seite>();
         builder.Services.AddSingleton<Anmelde_Seite>();
 		builder.Services.AddSingleton<Artikel_Seite>();
         builder.Services.AddSingleton<NeuerArtikel_Seite>();
+		builder.Services.AddSingleton<NeueAusleihe_Seite>();
 
         //ViewModels
         builder.Services.AddSingleton<Anmelde_SeiteViewModel>();
 		builder.Services.AddSingleton<Haupt_SeiteVM>();
 		builder.Services.AddSingleton<ArtikelVM>();
+		builder.Services.AddSingleton<AusleiheVM>();
 
 
         return builder.Build();

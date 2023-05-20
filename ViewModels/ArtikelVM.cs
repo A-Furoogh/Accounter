@@ -108,6 +108,7 @@ namespace Accounter.ViewModels
                 await _artikelService.AddArtikel(artikel);
                 Artikels.Add(artikel);
                 SearchedArtikels.Add(artikel);
+                await Aktualisieren();
                 await Shell.Current.Navigation.PopAsync();
             }
             catch (Exception ex)
@@ -212,13 +213,7 @@ namespace Accounter.ViewModels
             if (IsBusy) { return; }
             else if (string.IsNullOrEmpty(SearchedWord)) 
             { 
-                SearchedArtikels.Clear();
-                await GetArtikelList();
-                for(int i=0; i< Artikels.Count;)
-                {
-                    SearchedArtikels.Add(Artikels[i]);
-                    i++;
-                }
+                await Aktualisieren();
                 return;
             }
             else
@@ -238,6 +233,16 @@ namespace Accounter.ViewModels
             }
 
         }
+        public async Task Aktualisieren()
+        {
+            await GetArtikelList();
+            SearchedArtikels.Clear();
+            for (int i = 0; i < Artikels.Count;)
+            {
+                SearchedArtikels.Add(Artikels[i]);
+                i++;
+            }
+        }
         [RelayCommand]
         public async Task NeuerArtikelSeite() 
         { 
@@ -246,6 +251,11 @@ namespace Accounter.ViewModels
         [RelayCommand]
         public async Task Ausleihen(Artikel artikel)
         {
+            //if (!artikel.Ausleihbar) 
+            //{
+            //    await Shell.Current.DisplayAlert("Error!", $"Dieser Artikel ist nicht ausleihbar!", "OK");
+            //    return;
+            //}
             await Shell.Current.Navigation.PushModalAsync(new NeueAusleihe_Seite(new AusleiheVM(new AusleiheService(),artikel)));
         }
     }

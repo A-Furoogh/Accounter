@@ -70,13 +70,13 @@
             <Frame Grid.Column="0" Grid.Row="3" BackgroundColor="Transparent" Padding="0" BorderColor="DeepSkyBlue">
                 <VerticalStackLayout >
                     <Label Text="Ablaufdatum:" Margin="10,10,0,0"/>
-                    <DatePicker Date="{Binding AblaufsDatum}" WidthRequest="150"/>
+                    <DatePicker Date="{Binding AblaufsDatum}" WidthRequest="150" MinimumDate="01/01/2023"/>
                 </VerticalStackLayout>
             </Frame>
             <Frame Grid.Column="1" Grid.Row="3" BackgroundColor="Transparent" Padding="0" BorderColor="DeepSkyBlue">
                 <VerticalStackLayout >
                     <Label Text="Näch. Prüfdatum:" Margin="5,10,0,0"/>
-                    <DatePicker Date="{Binding NaechstePruefDatum}" WidthRequest="150"/>
+                    <DatePicker Date="{Binding NaechstePruefDatum}" WidthRequest="150" MinimumDate="01/01/2023"/>
                 </VerticalStackLayout>
             </Frame>
             <Frame Grid.Column="0" Grid.Row="4" BackgroundColor="Transparent" Padding="0" BorderColor="CadetBlue">
