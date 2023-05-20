@@ -57,7 +57,6 @@ namespace Accounter.ViewModels
             SearchedArtikels = new ObservableCollection<Artikel>();
             _ = PerformSearch();
         }
-        
 
         [RelayCommand]
         public async Task GetArtikelList()

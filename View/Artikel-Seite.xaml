@@ -50,42 +50,37 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Models:Artikel">
-                        
-                        <Grid Padding="0"
-                              Margin="0,5,0,5">
-                            <SwipeView BackgroundColor="Transparent">
-                                <SwipeView.RightItems>
-                                    <SwipeItems Mode="Reveal">
-                                        <SwipeItem Text="Löschen"
+                        <SwipeView BackgroundColor="Transparent" Margin="0,5,0,0">
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem Text="Löschen"
                                                BackgroundColor="Red"
                                                Command="{Binding Source={x:RelativeSource AncestorType={x:Type ViewModels:ArtikelVM}},Path=DeleteArtikelCommand}"
                                                CommandParameter="{Binding .}"/>
-                                        <SwipeItem Text="Update"
+                                    <SwipeItem Text="Update"
                                                BackgroundColor="LightSeaGreen"
                                                Command="{Binding Source={x:RelativeSource AncestorType={x:Type ViewModels:ArtikelVM}},Path=UpdateArtikelCommand}"
                                                CommandParameter="{Binding .}"/>
-                                    </SwipeItems>
-                                </SwipeView.RightItems>
-                                <Frame HeightRequest="135"
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Frame HeightRequest="135"
                                        Padding="5">
-                                    <Grid ColumnDefinitions="*,*">
-                                      
-                                        <Image  Grid.Column="0"
+                                <Grid ColumnDefinitions="*,*">
+
+                                    <Image  Grid.Column="0"
                                                 Source="{Binding Image}"
                                                 Aspect="AspectFill"
                                                 WidthRequest="100"
                                                 HeightRequest="100"
                                                 HorizontalOptions="Start"
                                                 VerticalOptions="Start"/>
-                                    
-                                        <Label  Grid.Column="1"
+
+                                    <Label  Grid.Column="1"
                                                 Text="{Binding ArtName}"
                                                 />
-                                    </Grid>
-                                </Frame>
-                            </SwipeView>
-                        </Grid>
-                        
+                                </Grid>
+                            </Frame>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 
