@@ -58,10 +58,6 @@ namespace Accounter.ViewModels
             AusleiheListe = new ObservableCollection<Ausleihe>();
             SearchedAusleiheListe = new ObservableCollection<Ausleihe>();
             _ = PerformSearch();
-            Ausleihe ausleihe = new Ausleihe() { ArtName = "ABCD", ArtID=12345, Image ="what.png", KundID=23123 };
-            _ausleiheService.AddAusleihe(ausleihe);
-            Ausleihe ausleihe1 = new Ausleihe() { ArtName = "DCBA", ArtID = 12345, Image = "what.png", KundID = 33123 };
-            _ausleiheService.AddAusleihe(ausleihe1);
         }
         [RelayCommand]
         public async Task ArtikelAusleihen()

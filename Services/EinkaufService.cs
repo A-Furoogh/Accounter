@@ -39,7 +39,7 @@ namespace Accounter.Services
             await dbConnection.DeleteAsync(einkauf);
         }
 
-        public async Task<List<Einkauf>> GetEinkaufList()
+        public async Task<List<Einkauf>> GetEinkaufsList()
         {
             await Init();
             return await dbConnection.Table<Einkauf>().ToListAsync();
@@ -51,7 +51,7 @@ namespace Accounter.Services
             await dbConnection.UpdateAsync(einkauf);
         }
 
-        public async Task DeleteAllsEinkauf()
+        public async Task DeleteAllEinkaeufe()
         {
             await Init();
             await dbConnection.DeleteAllAsync<Einkauf>();
