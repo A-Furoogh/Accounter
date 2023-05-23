@@ -13,5 +13,6 @@ namespace Accounter.Services
         Task AddAusleihe(Ausleihe artikel);
         Task UpdateAusleihe(Ausleihe artikel);
         Task DeleteAusleihe(Ausleihe artikel);
+        Task DeleteAllAusleihe();
     }
 }

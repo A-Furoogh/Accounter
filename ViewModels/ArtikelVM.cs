@@ -251,11 +251,11 @@ namespace Accounter.ViewModels
         [RelayCommand]
         public async Task Ausleihen(Artikel artikel)
         {
-            //if (!artikel.Ausleihbar) 
-            //{
-            //    await Shell.Current.DisplayAlert("Error!", $"Dieser Artikel ist nicht ausleihbar!", "OK");
-            //    return;
-            //}
+            if (!artikel.Ausleihbar)
+            {
+                await Shell.Current.DisplayAlert("Error!", $"Dieser Artikel ist nicht ausleihbar!", "OK");
+                return;
+            }
             await Shell.Current.Navigation.PushModalAsync(new NeueAusleihe_Seite(new AusleiheVM(new AusleiheService(),artikel)));
         }
     }

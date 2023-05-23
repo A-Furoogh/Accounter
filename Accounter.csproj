@@ -61,6 +61,12 @@
 	  <MauiXaml Update="View\Anmelde-Seite.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\Ausleihe_Seite.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Einkauf_Seite.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\NeueAusleihe_Seite.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

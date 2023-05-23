@@ -51,7 +51,8 @@
                     WidthRequest="100"
                     HorizontalTextAlignment="Center"
                     Grid.Column="1"
-                    Grid.Row="1"/>
+                    Grid.Row="1"
+                    Keyboard="Numeric"/>
         
             <Label Text="AusleihDatum: "
                    Grid.Column="0"
@@ -86,7 +87,8 @@
                     VerticalOptions="Center"
                     HorizontalTextAlignment="Center"
                     Grid.Column="1"
-                    Grid.Row="4"/>
+                    Grid.Row="4"
+                    Keyboard="Numeric"/>
         </Grid>
         
         <Button Text="Ausleihen"

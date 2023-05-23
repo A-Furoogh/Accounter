@@ -26,6 +26,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IBenutzerService, BenutzerService>();
 		builder.Services.AddSingleton<IArtikelService, ArtikelService>();
 		builder.Services.AddSingleton<IAusleiheService, AusleiheService>();
+		builder.Services.AddSingleton<IEinkaufService, EinkaufService>();
 
         //Views
         builder.Services.AddSingleton<Haupt_Seite>();
@@ -33,12 +34,15 @@ public static class MauiProgram
 		builder.Services.AddSingleton<Artikel_Seite>();
         builder.Services.AddSingleton<NeuerArtikel_Seite>();
 		builder.Services.AddSingleton<NeueAusleihe_Seite>();
+		builder .Services.AddSingleton<Einkauf_Seite>();
+		builder.Services .AddSingleton<Ausleihe_Seite>();
 
         //ViewModels
         builder.Services.AddSingleton<Anmelde_SeiteViewModel>();
 		builder.Services.AddSingleton<Haupt_SeiteVM>();
 		builder.Services.AddSingleton<ArtikelVM>();
 		builder.Services.AddSingleton<AusleiheVM>();
+		builder.Services.AddSingleton<EinkaufVM>();
 
 
         return builder.Build();

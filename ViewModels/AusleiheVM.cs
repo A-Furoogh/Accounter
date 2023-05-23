@@ -15,7 +15,6 @@ using Microsoft.Maui.Controls;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 
-
 namespace Accounter.ViewModels
 {
     public partial class AusleiheVM :BaseViewModel
@@ -26,7 +25,7 @@ namespace Accounter.ViewModels
         [ObservableProperty]
         public string _image;
         [ObservableProperty]
-        public int _ArtID;
+        public int _artID;
         [ObservableProperty]
         public DateTime _ausleiheDatum;
         [ObservableProperty]
@@ -35,6 +34,13 @@ namespace Accounter.ViewModels
         public int _kundID;
         [ObservableProperty]
         public int _artAnzahl;
+
+        //-----------------------------------------------
+        [ObservableProperty]
+        public string _searchedWord;
+        public ObservableCollection<Ausleihe> AusleiheListe { get; set; }
+        public ObservableCollection<Ausleihe> SearchedAusleiheListe { get; set; }
+        //-----------------------------------------------
         public AusleiheVM(IAusleiheService ausleiheService,Artikel artikel)
         {
             _ausleiheService = ausleiheService;
@@ -43,6 +49,19 @@ namespace Accounter.ViewModels
             ArtID = artikel.ArtID;
             AusleiheDatum = DateTime.Now;
             AbgabeFrist = DateTime.Now.AddDays(7);
+            ArtName = artikel.ArtName;
+        }
+        public AusleiheVM(IAusleiheService ausleiheService)
+        {
+            _ausleiheService = ausleiheService;
+            Title = "Ausleihe";
+            AusleiheListe = new ObservableCollection<Ausleihe>();
+            SearchedAusleiheListe = new ObservableCollection<Ausleihe>();
+            _ = PerformSearch();
+            Ausleihe ausleihe = new Ausleihe() { ArtName = "ABCD", ArtID=12345, Image ="what.png", KundID=23123 };
+            _ausleiheService.AddAusleihe(ausleihe);
+            Ausleihe ausleihe1 = new Ausleihe() { ArtName = "DCBA", ArtID = 12345, Image = "what.png", KundID = 33123 };
+            _ausleiheService.AddAusleihe(ausleihe1);
         }
         [RelayCommand]
         public async Task ArtikelAusleihen()
@@ -64,11 +83,13 @@ namespace Accounter.ViewModels
             }
             var ausleihe = new Ausleihe()
             {
-                ArtID = ArtID,
+                ArtID = (int)ArtID,
                 AusleiheDatum = AusleiheDatum,
                 AbgabeFrist = AbgabeFrist,
                 KundID = KundID,
-                ArtAnzahl = ArtAnzahl
+                ArtAnzahl = ArtAnzahl,
+                Image = Image,
+                ArtName = ArtName
             };
             await _ausleiheService.AddAusleihe(ausleihe);
             await Shell.Current.GoToAsync("..");
@@ -78,6 +99,111 @@ namespace Accounter.ViewModels
         {
             await Shell.Current.GoToAsync("..");
         }
-        
+        [RelayCommand]
+        public async Task PerformSearch()
+        {
+            if (IsBusy) { return; }
+            else if (string.IsNullOrEmpty(SearchedWord))
+            {
+                await Aktualisieren();
+                return;
+            }
+            else
+            {
+                IsBusy = true;
+                SearchedAusleiheListe.Clear();
+
+                foreach (var ausleihe in AusleiheListe)
+                {
+                    if (ausleihe.ArtName.ToLower().Contains(SearchedWord.ToLower()))
+                    {
+                        SearchedAusleiheListe.Add(ausleihe);
+                    }
+                }
+                IsBusy = false;
+                return;
+            }
+
+        }
+        public async Task Aktualisieren()
+        {
+            await GetAusleiheList();
+            SearchedAusleiheListe.Clear();
+            for (int i = 0; i < AusleiheListe.Count;)
+            {
+                SearchedAusleiheListe.Add(AusleiheListe[i]);
+                i++;
+            }
+        }
+        [RelayCommand]
+        public async Task GetAusleiheList()
+        {
+            if (IsBusy) { return; }
+            try
+            {
+                IsBusy = true;
+                var ausleiheListe = await _ausleiheService.GetAusleiheList();
+                if (ausleiheListe?.Count > 0)
+                {
+                    AusleiheListe.Clear();
+                    foreach (var ausleihe in ausleiheListe)
+                    {
+                        AusleiheListe.Add(ausleihe);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                await Shell.Current.DisplayAlert("Error!", $"Unable to get Ausleihe: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        //DeleteArtikelCommand
+        [RelayCommand]
+        public async Task DeleteArtikel(Ausleihe ausleihe)
+        {
+            if (IsBusy) { return; }
+            try
+            {
+                IsBusy = true;
+                await _ausleiheService.DeleteAusleihe(ausleihe);
+                AusleiheListe.Remove(ausleihe);
+                SearchedAusleiheListe.Remove(ausleihe);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                await Shell.Current.DisplayAlert("Error!", $"Unable to delete Ausleihe: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        //UpdateAusleiheCommand
+        [RelayCommand]
+        public async Task UpdateAusleihe(Ausleihe ausleihe)
+        {
+            if (IsBusy) { return; }
+            try
+            {
+                IsBusy = true;
+                await _ausleiheService.UpdateAusleihe(ausleihe);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                await Shell.Current.DisplayAlert("Error!", $"Unable to update Ausleihe: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
     }
 }

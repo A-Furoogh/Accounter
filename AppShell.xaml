@@ -63,6 +63,16 @@
     <ShellContent
         Title="Artikel Seite"
         ContentTemplate="{DataTemplate local:Artikel_Seite}"
-        Route="Haupt_Seite" />
-    
+        Route="Artikel_Seite" />
+
+    <ShellContent
+        Title="Ausleihe Seite"
+        ContentTemplate="{DataTemplate local:Ausleihe_Seite}"
+        Route="Ausleihe_Seite" />
+
+    <ShellContent
+        Title="Einkauf Seite"
+        ContentTemplate="{DataTemplate local:Einkauf_Seite}"
+        Route="Einkauf_Seite" />
+
 </Shell>

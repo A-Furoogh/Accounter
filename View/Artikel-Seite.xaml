@@ -8,8 +8,17 @@
              Title="{Binding Title}"
              Style="{StaticResource GlobalContentPageStyle}"
              NavigationPage.HasNavigationBar="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+            </Style>
+            <ViewModels:BooleanToJaNeinConverter x:Key="BooleanToJaNeinConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-    <Grid RowDefinitions="60,*,70" 
+
+    <Grid RowDefinitions="60,*,70"
           RowSpacing="10">
         
         <Frame Grid.Row="0"
@@ -72,20 +81,73 @@
                                 </SwipeItems>
                             </SwipeView.LeftItems>
                             <Frame HeightRequest="135"
-                                       Padding="5">
-                                <Grid ColumnDefinitions="*,*">
+                                   Padding="3"
+                                   BackgroundColor="Cornsilk">
+                                <Grid ColumnDefinitions="*,*,*" RowDefinitions="0.9*,2*,1.5*" RowSpacing="2" ColumnSpacing="4">
 
-                                    <Image  Grid.Column="0"
-                                                Source="{Binding Image}"
-                                                Aspect="AspectFill"
-                                                WidthRequest="100"
-                                                HeightRequest="100"
-                                                HorizontalOptions="Start"
-                                                VerticalOptions="Start"/>
+                                    <Frame Grid.Column="0" 
+                                           Grid.Row="0" 
+                                           Grid.RowSpan="2" 
+                                           Padding="0" BackgroundColor="LightYellow">
+                                    <Image  
+                                            Source="{Binding Image}"
+                                            Aspect="AspectFill"/>
+                                    </Frame>
+                                    
+                                    <Label  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" 
+                                            Text="{Binding ArtName}"
+                                            FontSize="18"/>
 
-                                    <Label  Grid.Column="1"
-                                                Text="{Binding ArtName}"
-                                                />
+
+                                    <Frame  BackgroundColor="SeaShell" Padding="3" Grid.Column="1" Grid.Row="1">
+                                        <VerticalStackLayout Spacing="0">
+                                            <HorizontalStackLayout>
+                                                <Label Text="Ausleihbar:"/>
+                                                <Label Text="{Binding Ausleihbar, Converter={StaticResource BooleanToJaNeinConverter}}"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Text="Preis/Tag:   "/>
+                                                <Label Text="{Binding PreisProTag, StringFormat='{0} €'}"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Text="Preis/Ges.: "/>
+                                                <Label Text="{Binding PreisGesamt, StringFormat='{0} €'}"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                    <Frame  BackgroundColor="Linen" Padding="3" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
+                                        <VerticalStackLayout Spacing="5">
+                                            <HorizontalStackLayout>
+                                                <Label Text="Lagerplatz: "/>
+                                                <Label Text="{Binding LagerPlatz}"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Text="Bestand: "/>
+                                                <Label Text="{Binding Anzahllager}"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Text="Best.limit: "/>
+                                                <Label Text="{Binding BestandLimit}"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Text="Barcode: "/>
+                                                <Label Text="{Binding Barcode}"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                    <Frame  BackgroundColor="SeaShell" Padding="3" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                                        <VerticalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Text="Ablaufdatum: "/>
+                                                <Label Text="{Binding AblaufsDatum, StringFormat='{0:d}'}"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Text="Prüfdatum:     "/>
+                                                <Label Text="{Binding NaechstePruefDatum, StringFormat='{0:d}'}"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                    
                                 </Grid>
                             </Frame>
                         </SwipeView>

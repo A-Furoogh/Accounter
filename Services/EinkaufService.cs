@@ -1,19 +1,17 @@
-﻿using System;
+﻿using Accounter.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Accounter.Models;
 using SQLite;
 
 namespace Accounter.Services
 {
-    public class AusleiheService : IAusleiheService
+    public class EinkaufService : IEinkaufService
     {
-
         static SQLiteAsyncConnection dbConnection;
-
-        public AusleiheService()
+        public EinkaufService()
         {
             _ = Init();
         }
@@ -26,36 +24,37 @@ namespace Accounter.Services
             }
             var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Accounter.db");
             dbConnection = new SQLiteAsyncConnection(dbPath);
-            await dbConnection.CreateTableAsync<Ausleihe>();
-        }
-        public async Task AddAusleihe(Ausleihe artikel)
-        {
-            await Init();
-            await dbConnection.InsertAsync(artikel);
+            await dbConnection.CreateTableAsync<Einkauf>();
         }
 
-        public async Task DeleteAusleihe(Ausleihe artikel)
+        public async Task AddEinkauf(Einkauf einkauf)
         {
             await Init();
-            await dbConnection.DeleteAsync(artikel);
+            await dbConnection.InsertAsync(einkauf);
         }
 
-        public async Task<List<Ausleihe>> GetAusleiheList()
+        public async Task DeleteEinkauf(Einkauf einkauf)
         {
             await Init();
-            return await dbConnection.Table<Ausleihe>().ToListAsync();
+            await dbConnection.DeleteAsync(einkauf);
         }
 
-        public async Task UpdateAusleihe(Ausleihe artikel)
+        public async Task<List<Einkauf>> GetEinkaufList()
         {
             await Init();
-            await dbConnection.UpdateAsync(artikel);
+            return await dbConnection.Table<Einkauf>().ToListAsync();
         }
 
-        public async Task DeleteAllAusleihe()
+        public async Task UpdateEinkauf(Einkauf einkauf)
         {
             await Init();
-            await dbConnection.DeleteAllAsync<Ausleihe>();
+            await dbConnection.UpdateAsync(einkauf);
+        }
+
+        public async Task DeleteAllsEinkauf()
+        {
+            await Init();
+            await dbConnection.DeleteAllAsync<Einkauf>();
         }
     }
 }

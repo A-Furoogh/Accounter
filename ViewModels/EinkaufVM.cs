@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Accounter.ViewModels
 {
-    internal class EinkauVM
+    public class EinkaufVM : BaseViewModel
     {
+        public EinkaufVM()
+        {
+            Title = "Einkauf";
+        }
     }
 }
