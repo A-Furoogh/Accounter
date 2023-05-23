@@ -75,4 +75,9 @@
         ContentTemplate="{DataTemplate local:Einkauf_Seite}"
         Route="Einkauf_Seite" />
 
+    <ShellContent
+        Title="Kunden Seite"
+        ContentTemplate="{DataTemplate local:Kunden_Seite}"
+        Route="Kunden_Seite" />
+
 </Shell>
