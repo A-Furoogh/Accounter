@@ -78,6 +78,10 @@
                                                BackgroundColor="GreenYellow"
                                                Command="{Binding Source={x:RelativeSource AncestorType={x:Type ViewModels:ArtikelVM}},Path=AusleihenCommand}"
                                                CommandParameter="{Binding .}"/>
+                                    <SwipeItem Text="Defekt"
+                                               BackgroundColor="MediumOrchid"
+                                               Command="{Binding Source={x:RelativeSource AncestorType={x:Type ViewModels:ArtikelVM}},Path=DefektMeldenCommand}"
+                                               CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.LeftItems>
                             <Frame HeightRequest="135"

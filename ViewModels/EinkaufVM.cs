@@ -110,7 +110,7 @@ namespace Accounter.ViewModels
                 IsBusy = false;
             }
         }
-        //DeleteArtikelCommand
+        //DeleteEinkaufCommand
         [RelayCommand]
         public async Task DeleteEinkauf(Einkauf einkauf)
         {
@@ -132,7 +132,7 @@ namespace Accounter.ViewModels
                 IsBusy = false;
             }
         }
-        //UpdateAusleiheCommand
+        //UpdateEinkaufCommand
         [RelayCommand]
         public async Task UpdateEinkauf(Einkauf einkauf)
         {

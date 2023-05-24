@@ -80,4 +80,9 @@
         ContentTemplate="{DataTemplate local:Kunden_Seite}"
         Route="Kunden_Seite" />
 
+    <ShellContent
+        Title="Defekt Seite"
+        ContentTemplate="{DataTemplate local:Defekt_Seite}"
+        Route="Defekt_Seite" />
+
 </Shell>
