@@ -26,15 +26,40 @@
                    WidthRequest="50"/>
         </Grid>
     </NavigationPage.TitleView>-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="BoxView">
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="Black" Offset="10,20" Radius="40" Opacity="0.8"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,*" Margin="10" RowSpacing="20">
+
+        <Grid Grid.Row="0"
+              RowDefinitions="*,*"
+              >
+            <BoxView Grid.Row="0" Color="LightSeaGreen" HeightRequest="50" WidthRequest="130" CornerRadius="20,20,0,0" HorizontalOptions="Start" VerticalOptions="Start" Margin="20,0,0,0"/>
+            <BoxView Grid.Row="1" Color="LightSeaGreen" HeightRequest="270" WidthRequest="330" VerticalOptions="End" CornerRadius="20"/>
+            <Label Text="Artikel" Grid.Row="0" FontSize="16" FontAttributes="Bold" TextColor="GhostWhite" Margin="40,0,0,0"/>
+            <CollectionView Grid.Row="1">
+                
+            </CollectionView>
+        </Grid>
         
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Haupt Seite!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="Zum--> Artikel Seite" Clicked="BtnArtikelSeite" Margin="20"></Button>
+        <Grid Grid.Row="1"
+              RowDefinitions="*,*"
+              >
+            <BoxView Grid.Row="0" Color="LightSeaGreen" HeightRequest="50" WidthRequest="130" CornerRadius="20,20,0,0" HorizontalOptions="Start" VerticalOptions="Start" Margin="20,0,0,0"/>
+            <BoxView Grid.Row="1" Color="LightSeaGreen" HeightRequest="270" WidthRequest="330" VerticalOptions="End" CornerRadius="20"/>
+            <Label Text="Ausleihe" Grid.Row="0" FontSize="16" FontAttributes="Bold" TextColor="GhostWhite" Margin="40,0,0,0"/>
+        </Grid>
         
-    </VerticalStackLayout>
-    
+    </Grid>
+
 
 </ContentPage>
