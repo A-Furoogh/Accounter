@@ -18,7 +18,28 @@ namespace Accounter.ViewModels
     {
         public Haupt_SeiteVM()
         {
-            Title = "Haupt Seite";
+            Title = "Home";
+        }
+        //Hier werden die Commands für die Buttons erstellt
+        [RelayCommand]
+        public async Task GotoArtikelPage()
+        {
+            await Shell.Current.GoToAsync(nameof(Artikel_Seite));
+        }
+        [RelayCommand]
+        public async Task GotoKundenPage()
+        {
+            await Shell.Current.GoToAsync(nameof(Kunden_Seite));
+        }
+        [RelayCommand]
+        public async Task GotoAusleihePage()
+        {
+            await Shell.Current.GoToAsync(nameof(Ausleihe_Seite));
+        }
+        [RelayCommand]
+        public async Task GotoEinkaufPage()
+        {
+            await Shell.Current.GoToAsync(nameof(Einkauf_Seite));
         }
     }
 }

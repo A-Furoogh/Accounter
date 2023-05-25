@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:Accounter.View"  
     Shell.FlyoutBehavior="Flyout" 
     FlyoutBackground="Azure"
+    FlyoutWidth="250"
     >
     <!--<Shell.TitleView>
         <Grid ColumnDefinitions="*,auto"
@@ -24,7 +25,7 @@
                    Aspect="AspectFill"/>
         </Grid>
     </Shell.TitleView>-->
-    
+
     <Shell.FlyoutHeader>
         <Grid BackgroundColor="Bisque">
             <Grid ColumnDefinitions="auto,*"
@@ -38,13 +39,32 @@
                        WidthRequest="50"/>
                 <Label Grid.Column="1"
                        Text="Accounter"
-                       FontSize="Large"
+                       FontSize="22"
+                       FontAttributes="Bold"
                        VerticalOptions="Center"
                        HorizontalOptions="Start"/>
 
             </Grid>
         </Grid>
     </Shell.FlyoutHeader>
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="*,70" Padding="5">
+                <BoxView Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="PaleTurquoise" Color="Transparent"/>
+                <Image Grid.Column="1"
+                       Source="{Binding FlyoutIcon}"
+                       Aspect="AspectFill"
+                       Margin="0,0,15,0"/>
+                <Label Text="{Binding Title}"
+                       VerticalOptions="Center"
+                       Grid.Column="0"
+                       FontSize="25"
+                       FontAttributes="None"
+                       Margin="15,0,0,0"/>
+
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
     <Shell.FlyoutFooter>
         <Grid Margin="10" HorizontalOptions="Center">
             <HorizontalStackLayout 
@@ -55,34 +75,35 @@
             </HorizontalStackLayout>
         </Grid>
     </Shell.FlyoutFooter>
+
     <ShellContent
-        Title="Haupt Seite"
+        Title="Haupt"
         ContentTemplate="{DataTemplate local:Haupt_Seite}"
-        Route="Haupt-Seite" />
+        Route="Haupt-Seite" FlyoutIcon="home_flyout_1"/>
 
     <ShellContent
-        Title="Artikel Seite"
+        Title="Artikel"
         ContentTemplate="{DataTemplate local:Artikel_Seite}"
-        Route="Artikel_Seite" />
+        Route="Artikel_Seite" FlyoutIcon="artikel_flyout"/>
 
     <ShellContent
-        Title="Ausleihe Seite"
+        Title="Ausleihe"
         ContentTemplate="{DataTemplate local:Ausleihe_Seite}"
-        Route="Ausleihe_Seite" />
+        Route="Ausleihe_Seite" FlyoutIcon="ausleihe_flyout"/>
 
     <ShellContent
-        Title="Einkauf Seite"
+        Title="Einkauf"
         ContentTemplate="{DataTemplate local:Einkauf_Seite}"
-        Route="Einkauf_Seite" />
+        Route="Einkauf_Seite" FlyoutIcon="einkauf_flyout"/>
 
     <ShellContent
-        Title="Kunden Seite"
+        Title="Kunden"
         ContentTemplate="{DataTemplate local:Kunden_Seite}"
-        Route="Kunden_Seite" />
+        Route="Kunden_Seite" FlyoutIcon="kunden_flyout"/>
 
     <ShellContent
-        Title="Defekt Seite"
+        Title="Defekt"
         ContentTemplate="{DataTemplate local:Defekt_Seite}"
-        Route="Defekt_Seite" />
+        Route="Defekt_Seite" FlyoutIcon="defekt_flyout"/>
 
 </Shell>

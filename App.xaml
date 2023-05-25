@@ -20,6 +20,13 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style TargetType="CollectionView">
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="Black" Offset="10,20" Radius="40" Opacity="0.8"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

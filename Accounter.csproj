@@ -35,8 +35,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+		<MauiSplashScreen Include="Resources\Images\splashscreen.svg" Color="#512BD4" ImageBaseSize="128,128"/>
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
@@ -49,6 +48,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\artikel_flyout.png" />
+	  <None Remove="Resources\Images\ausleihe_flyout.png" />
+	  <None Remove="Resources\Images\ausleihe_icon.png" />
+	  <None Remove="Resources\Images\defekt_flyout.png" />
+	  <None Remove="Resources\Images\einkauf_flyout.png" />
+	  <None Remove="Resources\Images\einkauf_icon.png" />
+	  <None Remove="Resources\Images\home_flyout.png" />
+	  <None Remove="Resources\Images\home_flyout_1.png" />
+	  <None Remove="Resources\Images\inventory.png" />
+	  <None Remove="Resources\Images\kunden_flyout.png" />
+	  <None Remove="Resources\Images\kunden_icon.png" />
+	  <None Remove="Resources\Images\splashscreen.svg" />
 	  <None Remove="Resources\Images\user.png" />
 	</ItemGroup>
 
