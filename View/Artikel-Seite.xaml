@@ -177,5 +177,11 @@
                 Command="{Binding GetArtikelListCommand}"
                 IsEnabled="{Binding IsNotBusy}"/>-->
         </HorizontalStackLayout>
+        <ActivityIndicator     IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Grid.Row="0" Grid.RowSpan="3">
+        </ActivityIndicator>
     </Grid>
 </ContentPage>

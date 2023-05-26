@@ -51,9 +51,10 @@
     </ContentPage.Resources>
 
     <Grid>
+        
         <BoxView BackgroundColor="Transparent" CornerRadius="0,0,40,40" Opacity="0.3" Margin="15,0,15,20"/>
         <Grid RowDefinitions="150,*" Margin="5,0,5,0" RowSpacing="10">
-        <BoxView Grid.Row="0" BackgroundColor="Transparent" CornerRadius="0,0,40,40" Opacity="0.8"/>
+            <BoxView Grid.Row="0" BackgroundColor="Transparent" CornerRadius="0,0,40,40" Opacity="0.8"/>
             <HorizontalStackLayout Margin="10" Spacing="10" HorizontalOptions="Center">
                 <Image Source="what" Aspect="AspectFit"/>
                 <Label Text="Accounter" FontSize="Large" VerticalOptions="Center" TextColor="WhiteSmoke"/>
@@ -68,6 +69,7 @@
                     <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
+
                 <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="5">
                     <ImageButton Source="inventory" Aspect="AspectFit" HeightRequest="140" WidthRequest="130" Command="{Binding GotoArtikelPageCommand}" IsEnabled="{Binding IsNotBusy}" Style="{StaticResource GlobalButtonStyle}"/>
                     <Label Text="Artikel" HorizontalOptions="Center"/>

@@ -109,5 +109,11 @@
 
             </CollectionView>
         </Frame>
+        <ActivityIndicator     IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Grid.RowSpan="3">
+        </ActivityIndicator>
     </Grid>
 </ContentPage>

@@ -17,27 +17,24 @@ namespace Accounter.Services
         Benutzer b1 = new Benutzer() { Benutzername = "User", Passwort = "12345" };
         public BenutzerService() 
         {
-            _ = Init();
-            // Check if the benutzer table is empty
-            // if it is empty, add some initial data
-            try 
+            _ = InitializeAsync();
+        }
+        private async Task InitializeAsync()
+        {
+            await Init();
+            try
             {
-                if (dbConnection.Table<Benutzer>().CountAsync().Result == 0)
+                if (await dbConnection.Table<Benutzer>().CountAsync() == 0)
                 {
-                    //Initial-Benutzer-Daten
-                    _ = AddBenutzer(bb);
-                    _ = AddBenutzer(b1);
-                    return;
+                    await dbConnection.InsertAsync(bb);
+                    await dbConnection.InsertAsync(b1);
                 }
             }
             catch (Exception ex)
             {
-                Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
             }
-            
-            
         }
-
         private async Task Init()
         {
             

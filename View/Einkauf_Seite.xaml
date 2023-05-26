@@ -113,5 +113,11 @@
             </CollectionView>
         </Frame>
         <Button Text="Neuer Einkauf" Grid.Row="2" Command="{Binding CreateNewEinkaufCommand}" BackgroundColor="CornflowerBlue" TextColor="White" FontSize="20"/>
+        <ActivityIndicator     IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Grid.RowSpan="3">
+        </ActivityIndicator>
     </Grid>
 </ContentPage>
