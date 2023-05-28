@@ -88,6 +88,12 @@
                 </VerticalStackLayout>
             </Grid>
         </Grid>
+        <ActivityIndicator     IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Color="WhiteSmoke">
+        </ActivityIndicator>
     </Grid>
 
 </ContentPage>
