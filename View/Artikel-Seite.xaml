@@ -13,12 +13,22 @@
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="10"/>
             </Style>
+            <Style TargetType="Grid" x:Key="Backy">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="LightBlue" Offset="0.1"/>
+                            <GradientStop Color="DeepSkyBlue" Offset="0.9"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
             <ViewModels:BooleanToJaNeinConverter x:Key="BooleanToJaNeinConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <Grid RowDefinitions="60,*,70"
-          RowSpacing="10">
+          RowSpacing="10" Style="{StaticResource Backy}">
         
         <Frame Grid.Row="0"
                BackgroundColor="Transparent"
@@ -28,7 +38,7 @@
             <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
                 <Entry 
                    Placeholder="Artikel suchen"
-                   PlaceholderColor="BlanchedAlmond"
+                   PlaceholderColor="WhiteSmoke"
                    HeightRequest="70"
                    WidthRequest="200"
                    FontSize="15"
@@ -41,7 +51,7 @@
                     IsEnabled="{Binding IsNotBusy}"/>
             </HorizontalStackLayout>
         </Frame>
-        
+
         <Frame     Grid.Row="1"
                    BackgroundColor="Transparent"
                    Margin="5,0,5,5"
@@ -49,7 +59,7 @@
                    BorderColor="CornflowerBlue">
             <!--<RefreshView Command="{Binding GetArtikelListCommand}"
                          IsRefreshing="{Binding IsBusy}">-->
-                
+
             <CollectionView BackgroundColor="Transparent"
                             ItemsSource="{Binding SearchedArtikels}"
                             SelectionMode="Single"
@@ -92,11 +102,11 @@
                                            Grid.Row="0" 
                                            Grid.RowSpan="2" 
                                            Padding="0" BackgroundColor="LightYellow">
-                                    <Image  
+                                        <Image  
                                             Source="{Binding Image}"
                                             Aspect="AspectFill"/>
                                     </Frame>
-                                    
+
                                     <Label  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" 
                                             Text="{Binding ArtName}"
                                             FontSize="18"/>
@@ -150,24 +160,24 @@
                                             </HorizontalStackLayout>
                                         </VerticalStackLayout>
                                     </Frame>
-                                    
+
                                 </Grid>
                             </Frame>
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-                
+
             </CollectionView>
             <!--</RefreshView>-->
         </Frame>
-        <HorizontalStackLayout Grid.Row="2">
-        <Button 
+        <Button Grid.Row="2"
                 Text="Neuer Artikel"
                 HeightRequest="70"
                 WidthRequest="300"
-                Margin="0,0,0,10"
+                Margin="5,5,5,15"
                 Command="{Binding NeuerArtikelSeiteCommand}"
-                IsEnabled="{Binding IsNotBusy}"/>
+                IsEnabled="{Binding IsNotBusy}"
+                HorizontalOptions="Center"/>
         <!--<Button 
                 Text="Refresh"
                 HeightRequest="70"
@@ -176,7 +186,6 @@
                 HorizontalOptions="End"
                 Command="{Binding GetArtikelListCommand}"
                 IsEnabled="{Binding IsNotBusy}"/>-->
-        </HorizontalStackLayout>
         <ActivityIndicator     IsVisible="{Binding IsBusy}"
                                IsRunning="{Binding IsBusy}"
                                HorizontalOptions="FillAndExpand"

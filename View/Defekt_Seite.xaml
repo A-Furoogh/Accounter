@@ -95,10 +95,10 @@
                                                 <Label Text="Defektanzahl:     "/>
                                                 <Label Text="{Binding Anzahl}"/>
                                             </HorizontalStackLayout>
-                                            <HorizontalStackLayout>
+                                            <VerticalStackLayout>
                                                 <Label Text="Anmerkung: "/>
-                                                <Label Text="{Binding Anmerkung}"/>
-                                            </HorizontalStackLayout>
+                                                <Label Text="{Binding Anmerkung}" TextColor="OrangeRed"/>
+                                            </VerticalStackLayout>
                                         </VerticalStackLayout>
                                     </Frame>
                                 </Grid>

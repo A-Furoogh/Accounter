@@ -8,9 +8,23 @@
              Title="{Binding Title}"
              Style="{StaticResource GlobalContentPageStyle}"
              NavigationPage.HasNavigationBar="True">
-    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Grid" x:Key="Backy">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="LightBlue" Offset="0.1"/>
+                            <GradientStop Color="Orchid" Offset="0.9"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid RowDefinitions="60,*,70"
-          RowSpacing="10">
+          RowSpacing="10"
+          Style="{StaticResource Backy}">
 
         <Frame Grid.Row="0"
                BackgroundColor="Transparent"

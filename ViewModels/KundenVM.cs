@@ -114,7 +114,6 @@ namespace Accounter.ViewModels
             }
         }
         [RelayCommand]
-
         public async Task AddKunde()
         {
             if (IsBusy) { return; }
@@ -143,6 +142,11 @@ namespace Accounter.ViewModels
             {
                 IsBusy = false;
             }
+        }
+        [RelayCommand]
+        public async Task Abbrechen()
+        {
+            await Shell.Current.Navigation.PopAsync();
         }
         [RelayCommand]
         public async Task DeleteKunde(Kunde kunde)

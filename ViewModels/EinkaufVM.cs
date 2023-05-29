@@ -183,6 +183,11 @@ namespace Accounter.ViewModels
             }
         }
         [RelayCommand]
+        public async Task Abbrechen()
+        {
+            await Shell.Current.Navigation.PopAsync();
+        }
+        [RelayCommand]
         public async Task CreateNewEinkauf()
         {
             await Shell.Current.Navigation.PushModalAsync(new NeuerEinkauf_Seite(new EinkaufVM(new EinkaufService())));

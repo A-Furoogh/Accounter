@@ -66,12 +66,21 @@
         </Grid>
 
         <Rectangle Grid.Row="2"
-                   Fill="DarkGray"/>
-        <Button Grid.Row="2"
-                Text="Hinzufügen"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Margin="0,0,0,5"
-                Command="{Binding AddKundeCommand}"/>
+                   Style="{StaticResource FrameBacky}"/>
+        <VerticalStackLayout Grid.Row="2"
+                             Spacing="5">
+            <Button Text="Hinzufügen"
+                    HorizontalOptions="Center"
+                    Command="{Binding AddKundeCommand}"
+                    WidthRequest="230"
+                    HeightRequest="50"
+                    FontSize="20"/>
+            <Button Text="Abbrechen"
+                    WidthRequest="130"
+                    HeightRequest="40"
+                    Background="DarkRed"
+                    CornerRadius="20"
+                    Command="{Binding AbbrechenCommand}"/>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>
