@@ -77,7 +77,7 @@
                             <Frame HeightRequest="145"
                                    Padding="3"
                                    BackgroundColor="Cornsilk">
-                                <Grid ColumnDefinitions="*,2*" RowDefinitions="*,4*" RowSpacing="2" ColumnSpacing="5">
+                                <Grid ColumnDefinitions="110,*" RowDefinitions="30,105" RowSpacing="2" ColumnSpacing="5">
 
                                     <Frame Grid.Column="0" 
                                            Grid.Row="0" 
@@ -87,7 +87,7 @@
                                             Source="{Binding Image}"
                                             Aspect="AspectFill"
                                             HeightRequest="120"
-                                            WidthRequest="120"/>
+                                            WidthRequest="110"/>
                                     </Frame>
                                     <HorizontalStackLayout Grid.Column="1" Grid.Row="0" Spacing="5">
                                         <Label 

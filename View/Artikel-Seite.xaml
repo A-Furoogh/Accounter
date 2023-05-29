@@ -93,10 +93,10 @@
                                                CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.LeftItems>
-                            <Frame HeightRequest="135"
+                            <Frame HeightRequest="160"
                                    Padding="3"
                                    BackgroundColor="Cornsilk">
-                                <Grid ColumnDefinitions="*,*,*" RowDefinitions="0.9*,2*,1.5*" RowSpacing="2" ColumnSpacing="4">
+                                <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,1.5*" RowSpacing="2" ColumnSpacing="4">
 
                                     <Frame Grid.Column="0" 
                                            Grid.Row="0" 

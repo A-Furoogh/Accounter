@@ -76,10 +76,10 @@
                                                CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
-                            <Frame HeightRequest="145"
+                            <Frame HeightRequest="135"
                                    Padding="3"
                                    BackgroundColor="Cornsilk">
-                                <Grid ColumnDefinitions="*,2*" RowDefinitions="*,4*" RowSpacing="2" ColumnSpacing="5">
+                                <Grid ColumnDefinitions="100,200" RowDefinitions="40,80" RowSpacing="2" ColumnSpacing="5">
 
                                     <Frame Grid.Column="0" 
                                            Grid.Row="0" 
@@ -93,7 +93,7 @@
                                     </Frame>
                                     <HorizontalStackLayout Grid.Column="1" Grid.Row="0" Spacing="5">
                                         <Label 
-                                            Text="Kundenname: "
+                                            Text="Name: "
                                             FontSize="16"/>
                                         <Label   
                                             Text="{Binding KundName}"

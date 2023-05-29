@@ -20,10 +20,13 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="13"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <Grid RowDefinitions="60,*,70"
+    <Grid RowDefinitions="60,*"
           RowSpacing="10"
           Style="{StaticResource Backy}">
 
@@ -49,7 +52,7 @@
             </HorizontalStackLayout>
         </Frame>
 
-        <Frame     Grid.Row="1" Grid.RowSpan="2"
+        <Frame     Grid.Row="1"
                    BackgroundColor="Transparent"
                    Margin="5,0,5,5"
                    CornerRadius="10" Padding="5"
@@ -76,10 +79,10 @@
                                                CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
-                            <Frame HeightRequest="145"
+                            <Frame HeightRequest="175"
                                    Padding="3"
                                    BackgroundColor="Cornsilk">
-                                <Grid ColumnDefinitions="*,2*" RowDefinitions="*,4*" RowSpacing="2" ColumnSpacing="5">
+                                <Grid ColumnDefinitions="110,220" RowDefinitions="*,2*" RowSpacing="2" ColumnSpacing="5">
 
                                     <Frame Grid.Column="0" 
                                            Grid.Row="0" 
@@ -89,23 +92,24 @@
                                             Source="{Binding Image}"
                                             Aspect="AspectFill"
                                             HeightRequest="120"
-                                            WidthRequest="120"/>
+                                            WidthRequest="100"/>
                                     </Frame>
-                                    <HorizontalStackLayout Grid.Column="1" Grid.Row="0" Spacing="5">
+                                    <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="1">
                                         <Label   
                                             Text="{Binding ArtName}"
                                             FontSize="18"/>
-                                        <Label Text="     "/>
+                                        <HorizontalStackLayout>
                                         <Label 
-                                            Text="Artik-ID: "
-                                            FontSize="16"/>
+                                            Text="Artikel-Id: "
+                                            FontSize="12"/>
                                         <Label   
                                             Text="{Binding ArtID}"
-                                            FontSize="16"/>
-                                    </HorizontalStackLayout>
+                                            FontSize="12"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
 
                                     <Frame  BackgroundColor="SeaShell" Padding="3" Grid.Column="1" Grid.Row="1">
-                                        <VerticalStackLayout Spacing="0">
+                                        <VerticalStackLayout Spacing="2">
                                             <HorizontalStackLayout>
                                                 <Label Text="Kunden-ID:     "/>
                                                 <Label Text="{Binding KundID}"/>
