@@ -33,7 +33,7 @@ namespace Accounter.ViewModels
         [ObservableProperty]
         public string _image;
         [ObservableProperty]
-        public int _searchedID;
+        public string _searchedID;
         public ObservableCollection<Einkauf> EinkaufsListe { get; set; }
         public ObservableCollection<Einkauf> SearchedEinkaufsListe { get; set; }
 
@@ -51,7 +51,7 @@ namespace Accounter.ViewModels
         public async Task PerformSearch()
         {
             if (IsBusy) { return; }
-            else if (SearchedID == 0)
+            else if (string.IsNullOrEmpty(SearchedID))
             {
                 await Aktualisieren();
                 return;
@@ -63,7 +63,7 @@ namespace Accounter.ViewModels
 
                 foreach (var einkauf in EinkaufsListe)
                 {
-                    if (einkauf.BestellID.ToString().Contains(SearchedID.ToString().ToLower()))
+                    if (einkauf.BestellID.ToString().ToLower().Contains(SearchedID.ToString().ToLower()))
                     {
                         SearchedEinkaufsListe.Add(einkauf);
                     }
@@ -166,6 +166,10 @@ namespace Accounter.ViewModels
                 einkauf.EinkaufsPreis = EinkaufsPreis;
                 einkauf.Anmerkung = Anmerkung;
                 einkauf.Image = Image;
+                if (Image is null) 
+                {
+                    einkauf.Image = "what.png";
+                }
                 await _einkaufService.AddEinkauf(einkauf);
                 EinkaufsListe.Add(einkauf);
                 SearchedEinkaufsListe.Add(einkauf);

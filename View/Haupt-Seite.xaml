@@ -57,7 +57,7 @@
             <BoxView Grid.Row="0" BackgroundColor="Transparent" CornerRadius="0,0,40,40" Opacity="0.8"/>
             <HorizontalStackLayout Margin="10" Spacing="10" HorizontalOptions="Center">
                 <Image Source="what" Aspect="AspectFit"/>
-                <Label Text="Accounter" FontSize="Large" VerticalOptions="Center" TextColor="WhiteSmoke"/>
+                <Label Text="Accounter" FontSize="26" VerticalOptions="Center" TextColor="WhiteSmoke"/>
             </HorizontalStackLayout>
 
             <Grid  Grid.Row="1" RowSpacing="10" ColumnSpacing="10" HorizontalOptions="Center" VerticalOptions="Center">

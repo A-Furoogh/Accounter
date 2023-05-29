@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Accounter.View"  
     Shell.FlyoutBehavior="Flyout" 
     FlyoutBackground="Azure"
-    FlyoutWidth="250"
+    FlyoutWidth="290"
     >
     <!--<Shell.TitleView>
         <Grid ColumnDefinitions="*,auto"

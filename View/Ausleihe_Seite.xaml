@@ -22,6 +22,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
     <Grid RowDefinitions="60,*,70"
           RowSpacing="10"
           Style="{StaticResource Backy}">
@@ -119,7 +120,7 @@
                                             </HorizontalStackLayout>
                                             <HorizontalStackLayout>
                                                 <Label Text="Abgabefrist:    "/>
-                                                <Label Text="{Binding AbgabeFrist, StringFormat='{0:d}'}"/>
+                                                <Label Text="{Binding AbgabeFrist, StringFormat='{0:d}'}" TextColor="Red"/>
                                             </HorizontalStackLayout>
                                         </VerticalStackLayout>
                                     </Frame>

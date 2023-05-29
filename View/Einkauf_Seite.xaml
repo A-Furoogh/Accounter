@@ -32,7 +32,7 @@
                BorderColor="CornflowerBlue">
             <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
                 <Entry 
-                   Placeholder="Einkauf suchen"
+                   Placeholder="Einkauf-id suchen"
                    PlaceholderColor="BlanchedAlmond"
                    HeightRequest="70"
                    WidthRequest="200"
@@ -106,7 +106,7 @@
                                             </HorizontalStackLayout>
                                             <HorizontalStackLayout>
                                                 <Label Text="Einkaufspreis: "/>
-                                                <Label Text="{Binding EinkaufsPreis}"/>
+                                                <Label Text="{Binding EinkaufsPreis, StringFormat='{0} €'}"/>
                                             </HorizontalStackLayout>
                                             <HorizontalStackLayout>
                                                 <Label Text="Bestelldatum:"/>

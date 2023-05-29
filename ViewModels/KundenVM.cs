@@ -130,8 +130,8 @@ namespace Accounter.ViewModels
                 await _kundeService.AddKunde(kunde);
                 KundenListe.Add(kunde);
                 SearchedKundenListe.Add(kunde);
-                await Aktualisieren();
                 await Shell.Current.Navigation.PopAsync();
+                await Aktualisieren();
             }
             catch (Exception ex)
             {
@@ -174,7 +174,7 @@ namespace Accounter.ViewModels
         [RelayCommand]
         public async Task NeuerKunden_Seite()
         {
-            await Shell.Current.Navigation.PushAsync(new NeuerKunde_Seite(new KundenVM(new KundenService())));
+            await Shell.Current.Navigation.PushModalAsync(new NeuerKunde_Seite(new KundenVM(new KundenService())));
         }
     }
 }

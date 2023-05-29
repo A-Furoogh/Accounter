@@ -76,7 +76,7 @@ namespace Accounter.ViewModels
 
                 foreach (var defekt in DefektListe)
                 {
-                    if (defekt.ArtName.ToString().Contains(SearchedName.ToString().ToLower()))
+                    if (defekt.ArtName.ToString().ToLower().Contains(SearchedName.ToString().ToLower()))
                     {
                         SearchedDefektListe.Add(defekt);
                     }

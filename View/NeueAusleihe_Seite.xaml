@@ -102,7 +102,10 @@
                 FontSize="20"/>
 
         <Button Text="Abbrechen"
-                WidthRequest="120"
-                Command="{Binding AbbrechenCommand}"/>
+                    WidthRequest="130"
+                    HeightRequest="40"
+                    Background="DarkRed"
+                    CornerRadius="20"
+                    Command="{Binding AbbrechenCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
