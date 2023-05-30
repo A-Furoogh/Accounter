@@ -79,7 +79,7 @@
                             <Frame HeightRequest="135"
                                    Padding="3"
                                    BackgroundColor="Cornsilk">
-                                <Grid ColumnDefinitions="100,200" RowDefinitions="40,80" RowSpacing="2" ColumnSpacing="5">
+                                <Grid ColumnDefinitions="100,220" RowDefinitions="40,80" RowSpacing="2" ColumnSpacing="5">
 
                                     <Frame Grid.Column="0" 
                                            Grid.Row="0" 

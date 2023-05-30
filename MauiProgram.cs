@@ -42,6 +42,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<Kunden_Seite>();
 		builder.Services.AddSingleton<Defekt_Seite>();
 		builder.Services.AddSingleton<NeuerDefekt_Seite>();
+		builder.Services.AddSingleton<UpdateArtikel_Seite>();
 
         //ViewModels
         builder.Services.AddSingleton<Anmelde_SeiteViewModel>();

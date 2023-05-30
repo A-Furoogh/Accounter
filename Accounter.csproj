@@ -103,6 +103,9 @@
 	  <MauiXaml Update="View\NeuerKunde_Seite.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\UpdateArtikel_Seite.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

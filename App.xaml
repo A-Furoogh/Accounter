@@ -13,7 +13,7 @@
             <Style x:Key="GlobalContentPageStyle" TargetType="ContentPage">
                 <Setter Property="Background">
                     <Setter.Value>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,1.5">
                             <GradientStop Color="LightBlue" Offset="0"/>
                             <GradientStop Color="Blue" Offset="1"/>
                         </LinearGradientBrush>
