@@ -14,7 +14,7 @@ namespace Accounter.Models
             [PrimaryKey, AutoIncrement]
             public int ArtID { get; set; }
             public string ArtName { get; set; }
-            public bool Ausleihbar { get; set; }
+            public int Ausleihbar { get; set; }
             public decimal PreisProTag { get; set; }
             public decimal PreisGesamt { get; set; }
             public int Anzahllager { get; set; }

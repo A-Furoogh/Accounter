@@ -15,13 +15,13 @@ namespace Accounter.Services
     {
         static SQLiteAsyncConnection dbConnection;
         // Initial-Artikel-Daten
-        Artikel a7 = new Artikel() { ArtName = "Kaffeemaschine", PreisProTag = 10.0M, Image = "kaffeemaschine.png", Ausleihbar=true, Barcode=223323, Anzahllager=3, LagerPlatz="A3", BestandLimit=1, NaechstePruefDatum = new DateTime(2025, 5, 20) };
-        Artikel a2 = new Artikel() { ArtName = "Wasser", PreisProTag = 0.0M, PreisGesamt = 25.0M , Image = "wasserflaschen.png", Ausleihbar = true, Barcode = 648323, Anzahllager = 15, LagerPlatz = "D2", BestandLimit = 10, AblaufsDatum=DateTime.Now, NaechstePruefDatum=new DateTime(2023,5,20)};
-        Artikel a3 = new Artikel() { ArtName = "Stühle", PreisProTag = 40.0M, Image = "stuehle.png", Ausleihbar = true, Barcode = 223323, Anzahllager = 3, LagerPlatz = "A3", BestandLimit = 1 , NaechstePruefDatum = new DateTime(2024, 5, 20) };
-        Artikel a4 = new Artikel() { ArtName = "Jbl Music Box", PreisProTag = 5.0M, Image = "jblmusicbox.png", Ausleihbar = true, Barcode = 274923, Anzahllager = 2, LagerPlatz = "A1", BestandLimit = 1 , NaechstePruefDatum = new DateTime(2025, 5, 20) };
-        Artikel a5 = new Artikel() { ArtName = "Fussball", PreisProTag = 0.0M, Image = "fussball.png", Ausleihbar = true, Barcode = 836323, Anzahllager = 13, LagerPlatz = "A5", BestandLimit = 8 , NaechstePruefDatum = new DateTime(2023, 10, 14) };
-        Artikel a6 = new Artikel() { ArtName = "Cola Kleinflaschen", PreisProTag = 40.0M, Image = "colaflaschen.png", Ausleihbar = false, Barcode = 639323, Anzahllager = 50, LagerPlatz = "D2", BestandLimit = 20, AblaufsDatum = DateTime.Now };
-        Artikel a1 = new Artikel() { ArtName = "Blumenvase", PreisProTag = 2.0M, Image = "blumenvase.png", Ausleihbar = true, Barcode = 449323, Anzahllager = 3, LagerPlatz = "E5", BestandLimit = 1 , NaechstePruefDatum = new DateTime(2026, 3, 30) };
+        Artikel a7 = new Artikel() { ArtName = "Kaffeemaschine", PreisProTag = 10.0M, Image = "kaffeemaschine.png", Ausleihbar=1, Barcode=223323, Anzahllager=3, LagerPlatz="A3", BestandLimit=1, NaechstePruefDatum = new DateTime(2025, 5, 20) };
+        Artikel a2 = new Artikel() { ArtName = "Wasser", PreisProTag = 0.0M, PreisGesamt = 25.0M , Image = "wasserflaschen.png", Ausleihbar = 1, Barcode = 648323, Anzahllager = 15, LagerPlatz = "D2", BestandLimit = 10, AblaufsDatum=DateTime.Now, NaechstePruefDatum=new DateTime(2023,5,20)};
+        Artikel a3 = new Artikel() { ArtName = "Stühle", PreisProTag = 40.0M, Image = "stuehle.png", Ausleihbar = 1, Barcode = 223323, Anzahllager = 3, LagerPlatz = "A3", BestandLimit = 1 , NaechstePruefDatum = new DateTime(2024, 5, 20) };
+        Artikel a4 = new Artikel() { ArtName = "Jbl Music Box", PreisProTag = 5.0M, Image = "jblmusicbox.png", Ausleihbar = 1, Barcode = 274923, Anzahllager = 2, LagerPlatz = "A1", BestandLimit = 1 , NaechstePruefDatum = new DateTime(2025, 5, 20) };
+        Artikel a5 = new Artikel() { ArtName = "Fussball", PreisProTag = 0.0M, Image = "fussball.png", Ausleihbar = 1, Barcode = 836323, Anzahllager = 13, LagerPlatz = "A5", BestandLimit = 8 , NaechstePruefDatum = new DateTime(2023, 10, 14) };
+        Artikel a6 = new Artikel() { ArtName = "Cola Kleinflaschen", PreisProTag = 40.0M, Image = "colaflaschen.png", Ausleihbar = 0, Barcode = 639323, Anzahllager = 50, LagerPlatz = "D2", BestandLimit = 20, AblaufsDatum = DateTime.Now };
+        Artikel a1 = new Artikel() { ArtName = "Blumenvase", PreisProTag = 2.0M, Image = "blumenvase.png", Ausleihbar = 1, Barcode = 449323, Anzahllager = 3, LagerPlatz = "E5", BestandLimit = 1 , NaechstePruefDatum = new DateTime(2026, 3, 30) };
         public ArtikelService()
         {
             _ = InitializeAsync();

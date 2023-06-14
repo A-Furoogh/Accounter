@@ -24,7 +24,7 @@ namespace Accounter.ViewModels
         [ObservableProperty]
         public string _artName;
         [ObservableProperty]
-        public bool _ausleihbar;
+        public int _ausleihbar;
         [ObservableProperty]
         public decimal _preisProTag;
         [ObservableProperty]
@@ -281,7 +281,7 @@ namespace Accounter.ViewModels
         [RelayCommand]
         public async Task Ausleihen(Artikel artikel)
         {
-            if (!artikel.Ausleihbar)
+            if (artikel.Ausleihbar == 0)
             {
                 await Shell.Current.DisplayAlert("Error!", $"Dieser Artikel ist nicht ausleihbar!", "OK");
                 return;

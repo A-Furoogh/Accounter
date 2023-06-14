@@ -13,9 +13,9 @@ namespace Accounter.ViewModels
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool boolValue)
+            if (value is int boolValue)
             {
-                return boolValue ? "Ja" : "Nein";
+                return boolValue == 1 ? "Ja" : "Nein";
             }
             return string.Empty;
         }
