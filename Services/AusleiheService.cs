@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Accounter.Models;
+﻿using Accounter.Models;
 using SQLite;
 
 namespace Accounter.Services
 {
     public class AusleiheService : IAusleiheService
     {
-
+        // SQLiteAsyncConnection ist eine Klasse von SQLite, die die Verbindung zur Datenbank herstellt
         static SQLiteAsyncConnection dbConnection;
 
         public AusleiheService()
@@ -18,6 +13,7 @@ namespace Accounter.Services
             _ = Init();
         }
 
+        // Initialisierung der Datenbank
         private async Task Init()
         {
             if (dbConnection != null)
@@ -28,6 +24,7 @@ namespace Accounter.Services
             dbConnection = new SQLiteAsyncConnection(dbPath);
             await dbConnection.CreateTableAsync<Ausleihe>();
         }
+        // CRUD-Methoden
         public async Task AddAusleihe(Ausleihe artikel)
         {
             await Init();

@@ -1,18 +1,11 @@
 ﻿using Accounter.Models;
 using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Accounter.ViewModels;
-using Xamarin.Essentials;
-using System.Formats.Asn1;
 
 namespace Accounter.Services
 {
     public class ArtikelService : IArtikelService
     {
+        // SQLiteAsyncConnection ist eine Klasse von SQLite, die die Verbindung zur Datenbank herstellt
         static SQLiteAsyncConnection dbConnection;
         // Initial-Artikel-Daten
         Artikel a7 = new Artikel() { ArtName = "Kaffeemaschine", PreisProTag = 10.0M, Image = "kaffeemaschine.png", Ausleihbar=1, Barcode=223323, Anzahllager=3, LagerPlatz="A3", BestandLimit=1, NaechstePruefDatum = new DateTime(2025, 5, 20) };
@@ -27,6 +20,7 @@ namespace Accounter.Services
             _ = InitializeAsync();
         }
 
+        // Initialisierung der Datenbank
         private async Task InitializeAsync()
         {
             await Init();
@@ -48,6 +42,7 @@ namespace Accounter.Services
                 await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
             }
         }
+        // Initialisierung der Datenbank
         private async Task Init()
         {
 
@@ -64,32 +59,34 @@ namespace Accounter.Services
             await dbConnection.CreateTableAsync<Artikel>();
         }
 
+        // Funktion zum Abrufen der Artikelliste
         public async Task<List<Artikel>> GetArtikelList()
         {
             await Init();
             return await dbConnection.Table<Artikel>().ToListAsync();
         }
-
+        // Funktion zum updaten eines Artikels
         public async Task UpdateArtikel(Artikel artikel)
         {
             await Init();
 
             await dbConnection.UpdateAsync(artikel);
         }
+        // Funktion zum hinzufügen eines Artikels
         public async Task AddArtikel(Artikel artikel)
         {
             await Init();
 
             await dbConnection.InsertAsync(artikel);
         }
-
+        // Funktion zum löschen eines Artikels
         public async Task DeleteArtikel(Artikel artikel)
         {
             await Init();
 
             await dbConnection.DeleteAsync(artikel);
         }
-        // Delete all Artikel
+        // Lösche alle Artikel
         public async Task DeleteAllArtikels()
         {
             await Init();

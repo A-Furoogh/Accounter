@@ -1,13 +1,9 @@
 ﻿using Accounter.ViewModels;
 using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounter.Services
 {
+    // BenutzerService ist eine Klasse, die die Verbindung zur Datenbank herstellt
     public class BenutzerService : IBenutzerService
     {
         static SQLiteAsyncConnection dbConnection;
@@ -19,6 +15,7 @@ namespace Accounter.Services
         {
             _ = InitializeAsync();
         }
+        // Initialisierung der Datenbank
         private async Task InitializeAsync()
         {
             await Init();

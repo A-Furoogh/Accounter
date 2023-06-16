@@ -35,7 +35,7 @@
                Margin="2" Padding="5"
                CornerRadius="20"
                BorderColor="CornflowerBlue">
-            <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
+            <HorizontalStackLayout Spacing="0" HorizontalOptions="CenterAndExpand">
                 <Entry 
                    Placeholder="Artikel suchen"
                    PlaceholderColor="WhiteSmoke"
@@ -44,9 +44,9 @@
                    FontSize="15"
                    Text="{Binding SearchedWord}"/>
                 <Button
-                    Text="Suchen"
+                    Text="Suchen|Update"
                     HeightRequest="70"
-                    WidthRequest="100"
+                    WidthRequest="155" CornerRadius="50" Margin="0"
                     Command="{Binding PerformSearchCommand}"
                     IsEnabled="{Binding IsNotBusy}"/>
             </HorizontalStackLayout>
@@ -172,6 +172,7 @@
         </Frame>
         <Button Grid.Row="2"
                 Text="Neuer Artikel"
+                FontSize="24"
                 HeightRequest="70"
                 WidthRequest="300"
                 Margin="5,5,5,15"
